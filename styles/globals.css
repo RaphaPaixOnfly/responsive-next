@@ -1,0 +1,14 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  height: 100%;
+  width: 100%;
+  background-color: #FFFFFF; /* Background branco */
+  color: #0000FF; /* Texto azul */
+}
+
+* {
+  box-sizing: border-box;
+}

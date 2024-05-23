@@ -1,0 +1,103 @@
+.container {
+    min-height: 100vh;
+    padding: 20px; /* Adicionar padding para o border radius */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF; /* Background branco */
+    color: #000000; /* Texto preto */
+    border-radius: 20px; /* Borda arredondada azul */
+    border: 2px solid #00A6FC;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('/imagem-fundo.jpg');
+  }
+  
+  .main {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  .column1, .column2 {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .column1 {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .column2 {
+    gap: 10px;
+    margin-top: 90px; /* Margem superior */
+    justify-content: center; /* Centralizar os itens */
+  }
+  
+  .column2 .card {
+    background-color: #00A6FC; /* Fundo azul */
+    padding: 5px; /* Padding reduzido */
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #FFFFFF; /* Texto branco */
+    height: 60px; /* Altura ajustada */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+  }
+  
+  .card-top {
+    align-self: end; /* Alinha os botões de cima para baixo */
+  }
+  
+  .card-bottom {
+    align-self: start; /* Alinha os botões de baixo para cima */
+  }
+  
+  .card h2 {
+    margin: 0;
+    font-size: 12px; /* Texto menor */
+  }
+  
+  .iframeContainer {
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .title, .subtitle, .item {
+    color: #000000; /* Texto preto */
+  }
+  
+  @media (max-width: 768px) {
+    .main {
+      flex-direction: column;
+    }
+    .column2 {
+      margin-top: 0; /* Remover margin-top no mobile */
+    }
+    .card {
+      height: 40px; /* Altura ainda mais reduzida no mobile */
+      margin-bottom: 10px; /* Mais próximo dos itens acima */
+    }
+    .title {
+      font-size: 1.5rem; /* Título menor no mobile */
+    }
+    .subtitle {
+      font-size: 1.2rem; /* Subtítulo menor no mobile */
+    }
+    .item {
+      font-size: 1rem; /* Itens menores no mobile */
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .column2 .card {
+      margin-top: 20px;
+    }
+  }
+  
