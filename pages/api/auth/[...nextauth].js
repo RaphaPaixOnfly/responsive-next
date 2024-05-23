@@ -26,22 +26,25 @@ export default async function authHandler(req, res) {
       async jwt(token, user) {
         if (user) {
           token.id = user.id;
+          token.authToken = uuidv4(); // Adicionar authToken ao token JWT
         }
         return token;
       },
       async session(session, token) {
         session.user.id = token.id;
+        session.authToken = token.authToken; // Adicionar authToken à sessão
         return session;
       },
     },
     events: {
       async signIn(message) {
-        const token = uuidv4(); // Gera um token aleatório para cada usuário
-        setAuthCookie(message.req, token);
+        const authToken = uuidv4(); // Gera um token aleatório para cada usuário
+        setAuthCookie(message.req, authToken);
 
         // Enviar token para Zapier
         try {
-          await axios.post('https://hooks.zapier.com/hooks/catch/18679317/3jjolmp/', { token });
+          await axios.post('https://hooks.zapier.com/hooks/catch/18679317/3jjolmp/', { token: authToken });
+          console.log('Token generated and sent to Zapier:', authToken);
         } catch (error) {
           console.error('Error sending token to Zapier:', error.message);
         }
