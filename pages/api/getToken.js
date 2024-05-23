@@ -1,16 +1,18 @@
-// pages/api/getToken.js
-import { getCookie } from 'nookies';
+import { parseCookies } from 'nookies';
+import corsMiddleware from '../../middleware/corsMiddleware';
 
-export default function handler(req, res) {
+export default async function handler(req, res) {
+  await corsMiddleware(req, res); // Aplica o middleware CORS
+
   if (req.method === 'GET') {
-    const token = getCookie({ req }, 'auth-token');
+    const cookies = parseCookies({ req });
+    const token = cookies['auth-token'];
     if (token) {
       res.status(200).json({ token });
     } else {
       res.status(404).json({ error: 'Token not found' });
     }
   } else {
-    res.setHeader('Allow', ['GET']);
-    res.status(405).end(`Method ${req.method} Not Allowed`);
+    res.status(405).json({ error: 'Method not allowed' });
   }
 }

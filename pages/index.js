@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import axios from 'axios';
 import Head from 'next/head';
 import Script from 'next/script';
 import styles from '../styles/Home.module.css';
@@ -7,23 +8,13 @@ export default function Home() {
   const [iframeId, setIframeId] = useState('');
 
   const handleRedirect = async (id) => {
+    setIframeId(id);
+
     try {
-      const response = await fetch('/api/generateToken', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-
-      const data = await response.json();
-      console.log('Token generated and sent:', data.token);
-      setIframeId(id);
+      const response = await axios.post('/api/generateToken');
+      console.log('Token generated and sent to Zapier:', response.data);
     } catch (error) {
-      console.error('Error generating and sending token:', error);
+      console.error('Error generating and sending token:', error.message);
     }
   };
 
