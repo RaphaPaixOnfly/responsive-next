@@ -1,14 +1,13 @@
 import Cors from 'cors';
 
-// Initializing the cors middleware
+// Inicializa o middleware CORS
 const cors = Cors({
   methods: ['GET', 'HEAD', 'POST'],
   origin: '*',
 });
 
-// Helper method to wait for a middleware to execute before continuing
-// And to throw an error when an error happens in a middleware
-export function runMiddleware(req, res, fn) {
+// Helper para executar o middleware antes de continuar
+function runMiddleware(req, res, fn) {
   return new Promise((resolve, reject) => {
     fn(req, res, (result) => {
       if (result instanceof Error) {
@@ -19,4 +18,6 @@ export function runMiddleware(req, res, fn) {
   });
 }
 
-export default cors;
+export default async function corsMiddleware(req, res) {
+  await runMiddleware(req, res, cors);
+}

@@ -37,7 +37,7 @@ export default async function authHandler(req, res) {
     events: {
       async signIn(message) {
         const token = uuidv4(); // Gera um token aleatório para cada usuário
-        setAuthCookie(message.req, message.res, token);
+        setAuthCookie(message.req, token);
 
         // Enviar token para Zapier
         try {
