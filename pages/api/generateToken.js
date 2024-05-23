@@ -1,6 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { setAuthCookie } from '../../lib/setCookie';
-import axios from 'axios';
+import { setCookie } from 'nookies';
 import corsMiddleware from '../../middleware/corsMiddleware';
 
 export default async function handler(req, res) {
@@ -9,17 +8,15 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     const token = uuidv4(); // Gera um token aleatório
 
-    // Armazena o token como um cookie
-    setAuthCookie({ req, res }, token);
+    // Armazena o token em um cookie
+    setCookie({ res }, 'auth-token', token, {
+      maxAge: 30 * 24 * 60 * 60,
+      path: '/',
+      secure: true,
+      sameSite: 'lax',
+    });
 
-    // Envia o token para Zapier
-    try {
-      await axios.post('https://hooks.zapier.com/hooks/catch/18679317/3jjolmp/', { token });
-      res.status(200).json({ message: 'Token generated and sent to Zapier', token });
-    } catch (error) {
-      console.error('Error sending token to Zapier:', error.message);
-      res.status(500).json({ error: 'Error sending token to Zapier' });
-    }
+    res.status(200).json({ message: 'Token generated and stored', token });
   } else {
     res.status(405).json({ error: 'Method not allowed' });
   }
