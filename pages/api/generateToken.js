@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { setCookie } from 'nookies';
+import axios from 'axios';
 import corsMiddleware from '../../middleware/corsMiddleware';
 
 export default async function handler(req, res) {
@@ -8,15 +8,17 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     const token = uuidv4(); // Gera um token aleatório
 
-    // Armazena o token em um cookie
-    setCookie({ res }, 'auth-token', token, {
-      maxAge: 30 * 24 * 60 * 60,
-      path: '/',
-      secure: true,
-      sameSite: 'lax',
-    });
+    try {
+      // Envia o token para o endpoint storeToken
+      const storeTokenResponse = await axios.post('https://responsive-next.vercel.app/api/storeToken', { token });
+      console.log('Token generated and sent to storeToken:', token);
+      console.log('Store token response:', storeTokenResponse.data);
 
-    res.status(200).json({ message: 'Token generated and stored', token });
+      res.status(200).json({ message: 'Token generated and stored', token });
+    } catch (error) {
+      console.error('Error sending token to storeToken:', error.message);
+      res.status(500).json({ error: 'Error sending token to storeToken' });
+    }
   } else {
     res.status(405).json({ error: 'Method not allowed' });
   }

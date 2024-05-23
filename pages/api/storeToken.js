@@ -13,15 +13,17 @@ export default async function handler(req, res) {
         secure: true,
         sameSite: 'lax',
       });
+      console.log('Token stored successfully:', token);
       res.status(200).json({ message: 'Token stored successfully' });
     } else {
       res.status(400).json({ error: 'Token not provided' });
     }
   } else if (req.method === 'GET') {
     const cookies = parseCookies({ req });
-    const token = cookies['auth-token'];
-    if (token) {
-      res.status(200).json({ token });
+    console.log('All cookies:', cookies);
+    const authToken = cookies['auth-token'];
+    if (authToken) {
+      res.status(200).json({ token: authToken });
     } else {
       res.status(404).json({ error: 'Token not found' });
     }
