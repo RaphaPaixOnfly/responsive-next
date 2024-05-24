@@ -1,6 +1,6 @@
-let storedToken = null; // Variável global para armazenar o token
-
 import corsMiddleware from '../../middleware/corsMiddleware';
+
+let storedToken = null; // Variável global para armazenar o token
 
 export default async function handler(req, res) {
   await corsMiddleware(req, res); // Aplica o middleware CORS
@@ -25,3 +25,5 @@ export default async function handler(req, res) {
     res.status(405).json({ error: 'Method not allowed' });
   }
 }
+
+export { storedToken }; // Exporta a variável storedToken
