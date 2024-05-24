@@ -11,11 +11,12 @@ export default function Home() {
     setIframeId(id);
 
     try {
-      // Comentado para não gerar token ao clicar no botão
-      // const response = await axios.post('/api/generateToken');
-      // console.log('Token generated and sent to Zapier:', response.data);
+      const response = await axios.post('/api/generateToken');
+      const { token } = response.data;
+      sessionStorage.setItem('auth-token', token);
+      console.log('Token saved in session storage:', token);
     } catch (error) {
-      console.error('Error generating and sending token:', error.message);
+      console.error('Error generating and saving token:', error.message);
     }
   };
 

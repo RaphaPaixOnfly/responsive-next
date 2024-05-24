@@ -1,13 +1,12 @@
 import corsMiddleware from '../../middleware/corsMiddleware';
 
-let storedToken = null; // Variável global para armazenar o token
-
 export default async function handler(req, res) {
-  await corsMiddleware(req, res); // Aplica o middleware CORS
+  await corsMiddleware(req, res);
 
   if (req.method === 'GET') {
-    if (storedToken) {
-      res.status(200).json({ token: storedToken });
+    const token = sessionStorage.getItem('auth-token');
+    if (token) {
+      res.status(200).json({ token });
     } else {
       res.status(404).json({ error: 'Token not found' });
     }
