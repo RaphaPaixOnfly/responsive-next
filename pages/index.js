@@ -18,6 +18,9 @@ export default function Home() {
         token = response.data.token;
         localStorage.setItem('auth-token', token); // Armazena o token no localStorage
         console.log('Token generated and stored:', token);
+
+        // Envia o token para a API storeToken
+        await axios.post('/api/storeToken', { token });
       } catch (error) {
         console.error('Error generating and storing token:', error.message);
       }
