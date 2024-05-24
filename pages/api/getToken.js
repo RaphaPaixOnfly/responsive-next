@@ -7,6 +7,7 @@ export default async function handler(req, res) {
   if (req.method === 'GET') {
     const cookies = parseCookies({ req });
     const token = cookies['auth-token'];
+    console.log('Retrieving token in getToken:', token);
     if (token) {
       res.status(200).json({ token });
     } else {
