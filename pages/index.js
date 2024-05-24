@@ -31,11 +31,7 @@ export default function Home() {
 
   const fetchToken = async (token) => {
     try {
-      const response = await axios.get('/api/getToken', {
-        headers: {
-          'auth-token': token
-        }
-      });
+      const response = await axios.get('/api/getToken');
       console.log('Token fetched from server:', response.data);
     } catch (error) {
       console.error('Error fetching token:', error.message);
