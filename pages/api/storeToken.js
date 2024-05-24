@@ -1,5 +1,3 @@
-let storedToken = null; // Variável global para armazenar o token
-
 import corsMiddleware from '../../middleware/corsMiddleware';
 
 export default async function handler(req, res) {
@@ -8,16 +6,17 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     const { token } = req.body;
     if (token) {
-      storedToken = token;
+      localStorage.setItem('auth-token', token); // Armazena o token no localStorage
       console.log('Token stored successfully:', token);
       res.status(200).json({ message: 'Token stored successfully' });
     } else {
       res.status(400).json({ error: 'Token not provided' });
     }
   } else if (req.method === 'GET') {
-    console.log('Retrieving stored token:', storedToken);
-    if (storedToken) {
-      res.status(200).json({ token: storedToken });
+    const token = localStorage.getItem('auth-token');
+    console.log('Retrieving stored token:', token);
+    if (token) {
+      res.status(200).json({ token });
     } else {
       res.status(404).json({ error: 'Token not found' });
     }

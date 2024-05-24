@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import Head from 'next/head';
 import Script from 'next/script';
@@ -10,44 +10,13 @@ export default function Home() {
   const handleRedirect = async (id) => {
     setIframeId(id);
 
-    // Verifica se já existe um token no localStorage
-    let token = localStorage.getItem('auth-token');
-    if (!token) {
-      try {
-        const response = await axios.post('/api/generateToken');
-        token = response.data.token;
-        localStorage.setItem('auth-token', token); // Armazena o token no localStorage
-        console.log('Token generated and stored:', token);
-
-        // Envia o token para a API storeToken
-        await axios.post('/api/storeToken', { token });
-      } catch (error) {
-        console.error('Error generating and storing token:', error.message);
-      }
-    } else {
-      console.log('Token already exists:', token);
-    }
-
-    // Fetch the token from the server
-    fetchToken(token);
-  };
-
-  const fetchToken = async (token) => {
     try {
-      const response = await axios.get('/api/getToken');
-      console.log('Token fetched from server:', response.data);
+      const response = await axios.post('/api/generateToken');
+      console.log('Token generated and sent to storeToken:', response.data);
     } catch (error) {
-      console.error('Error fetching token:', error.message);
+      console.error('Error generating and sending token:', error.message);
     }
   };
-
-  useEffect(() => {
-    // Optional: Fetch the token when the component mounts
-    const token = localStorage.getItem('auth-token');
-    if (token) {
-      fetchToken(token);
-    }
-  }, []);
 
   return (
     <div className={styles.container}>
