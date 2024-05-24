@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import Head from 'next/head';
 import Script from 'next/script';
@@ -13,12 +13,38 @@ export default function Home() {
     try {
       const response = await axios.post('/api/generateToken');
       const { token } = response.data;
-      sessionStorage.setItem('auth-token', token);
-      console.log('Token saved in session storage:', token);
+      localStorage.setItem('auth-token', token); // Armazena o token no localStorage
+      console.log('Token generated and stored:', token);
+
+      // Fetch the token from the server
+      fetchToken();
     } catch (error) {
-      console.error('Error generating and saving token:', error.message);
+      console.error('Error generating and storing token:', error.message);
     }
   };
+
+  const getTokenFromLocalStorage = () => {
+    return localStorage.getItem('auth-token');
+  };
+
+  const fetchToken = async () => {
+    try {
+      const token = getTokenFromLocalStorage();
+      const response = await axios.get('/api/getToken', {
+        headers: {
+          'auth-token': token
+        }
+      });
+      console.log('Token fetched from server:', response.data);
+    } catch (error) {
+      console.error('Error fetching token:', error.message);
+    }
+  };
+
+  useEffect(() => {
+    // Optional: Fetch the token when the component mounts
+    fetchToken();
+  }, []);
 
   return (
     <div className={styles.container}>

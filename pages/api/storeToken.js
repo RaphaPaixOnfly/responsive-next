@@ -1,9 +1,9 @@
-import corsMiddleware from '../../middleware/corsMiddleware';
-
 let storedToken = null; // Variável global para armazenar o token
 
+import corsMiddleware from '../../middleware/corsMiddleware';
+
 export default async function handler(req, res) {
-  await corsMiddleware(req, res);
+  await corsMiddleware(req, res); // Aplica o middleware CORS
 
   if (req.method === 'POST') {
     const { token } = req.body;
