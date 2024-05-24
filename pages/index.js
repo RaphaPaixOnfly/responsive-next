@@ -9,16 +9,18 @@ export default function Home() {
 
   const handleRedirect = async (id) => {
     setIframeId(id);
-
-    
+  
     try {
       const response = await axios.post('/api/generateToken');
       console.log('Token generated and sent to Zapier:', response.data);
+  
+      // Faz a solicitação ao endpoint do proxy
+      await axios.post('/api/proxyToWebhook', { token: response.data.token });
     } catch (error) {
       console.error('Error generating and sending token:', error.message);
     }
-    
   };
+  
 
   return (
     <div className={styles.container}>
