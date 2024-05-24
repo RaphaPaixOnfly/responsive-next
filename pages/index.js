@@ -10,26 +10,27 @@ export default function Home() {
   const handleRedirect = async (id) => {
     setIframeId(id);
 
-    try {
-      const response = await axios.post('/api/generateToken');
-      const { token } = response.data;
-      localStorage.setItem('auth-token', token); // Armazena o token no localStorage
-      console.log('Token generated and stored:', token);
-
-      // Fetch the token from the server
-      fetchToken();
-    } catch (error) {
-      console.error('Error generating and storing token:', error.message);
+    // Verifica se já existe um token no localStorage
+    let token = localStorage.getItem('auth-token');
+    if (!token) {
+      try {
+        const response = await axios.post('/api/generateToken');
+        token = response.data.token;
+        localStorage.setItem('auth-token', token); // Armazena o token no localStorage
+        console.log('Token generated and stored:', token);
+      } catch (error) {
+        console.error('Error generating and storing token:', error.message);
+      }
+    } else {
+      console.log('Token already exists:', token);
     }
+
+    // Fetch the token from the server
+    fetchToken(token);
   };
 
-  const getTokenFromLocalStorage = () => {
-    return localStorage.getItem('auth-token');
-  };
-
-  const fetchToken = async () => {
+  const fetchToken = async (token) => {
     try {
-      const token = getTokenFromLocalStorage();
       const response = await axios.get('/api/getToken', {
         headers: {
           'auth-token': token
@@ -43,7 +44,10 @@ export default function Home() {
 
   useEffect(() => {
     // Optional: Fetch the token when the component mounts
-    fetchToken();
+    const token = localStorage.getItem('auth-token');
+    if (token) {
+      fetchToken(token);
+    }
   }, []);
 
   return (
