@@ -2,7 +2,8 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import ChartComponent from '../components/ChartComponent';
-import styles from '../styles/Dashboard.module.css'; // Crie um arquivo CSS para estilizar a página
+import HorizontalBar from '../components/HorizontalBar';
+import styles from '../styles/Dashboard.module.css';
 
 export default function Dashboard() {
   const [data, setData] = useState(null);
@@ -31,50 +32,40 @@ export default function Dashboard() {
     return <div>Loading...</div>;
   }
 
-  const performanceData = [
-    data.operacional,
-    data.tecauto,
-    data.controlecustos,
-    data.planejamento,
-  ];
-
-  const performanceLabels = [
-    'Operacional',
-    'Automação e Tecnologia',
-    'Controle de Custos',
-    'Planejamento',
-  ];
-
   return (
     <div className={styles.dashboard}>
       <h1>Dashboard</h1>
       <div className={styles.row}>
         <div className={styles.column}>
-          <h2>Desempenho Geral</h2>
           <ChartComponent
             type="doughnut"
-            data={[data.geral, 100 - data.geral]}
-            labels={['Desempenho', 'Restante']}
+            data={[data.geral]}
+            labels={['Desempenho Geral']}
           />
-        </div>
-        <div className={styles.column}>
-          <h2>Resumo</h2>
           <p>Desempenho Geral: {data.geral}%</p>
-          <p>{data.nome}, {data.empresa}</p>
         </div>
       </div>
       <div className={styles.row}>
-        {performanceData.map((score, index) => (
-          <div key={index} className={styles.column}>
-            <h2>{performanceLabels[index]}</h2>
-            <ChartComponent
-              type="bar"
-              data={[score, 100 - score]}
-              labels={[performanceLabels[index], 'Restante']}
-            />
-            <p>Nota: {score}</p>
-          </div>
-        ))}
+        <div className={styles.column}>
+          <HorizontalBar percentage={data.operacional} />
+          <h2>Operacional</h2>
+          <p>Desempenho: {data.operacional}%</p>
+        </div>
+        <div className={styles.column}>
+          <HorizontalBar percentage={data.tecauto} />
+          <h2>Automação e Tecnologia</h2>
+          <p>Desempenho: {data.tecauto}%</p>
+        </div>
+        <div className={styles.column}>
+          <HorizontalBar percentage={data.controlecustos} />
+          <h2>Controle de Custos</h2>
+          <p>Desempenho: {data.controlecustos}%</p>
+        </div>
+        <div className={styles.column}>
+          <HorizontalBar percentage={data.planejamento} />
+          <h2>Planejamento</h2>
+          <p>Desempenho: {data.planejamento}%</p>
+        </div>
       </div>
     </div>
   );
