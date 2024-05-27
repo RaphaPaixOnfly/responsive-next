@@ -30,17 +30,13 @@ import {
         legend: {
           display: false,
         },
-        tooltip: {
-          enabled: false,
-        },
       },
-      rotation: -90,
-      circumference: 180,
     };
   
     if (type === 'doughnut') {
       return (
         <div className="chart-container">
+          <h2>Geral</h2>
           <Doughnut data={chartData} options={options} />
           <div className="percentage-label">{data[0]}%</div>
         </div>

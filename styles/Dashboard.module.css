@@ -18,6 +18,8 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    padding-right: 10px;
+    border-right: 1px solid #ccc;
   }
   
   .column2 {
@@ -30,7 +32,7 @@
   
   .column {
     flex: 1;
-    margin: 0 10px;
+    margin: 0 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
