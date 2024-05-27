@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import axios from 'axios';
 import Head from 'next/head';
 import Script from 'next/script';
 import styles from '../styles/Home.module.css';
@@ -7,15 +6,8 @@ import styles from '../styles/Home.module.css';
 export default function Home() {
   const [iframeId, setIframeId] = useState('');
 
-  const handleRedirect = async (id) => {
+  const handleRedirect = (id) => {
     setIframeId(id);
-
-    try {
-      const response = await axios.post('/api/generateToken');
-      console.log('Token generated and sent to storeToken:', response.data);
-    } catch (error) {
-      console.error('Error generating and sending token:', error.message);
-    }
   };
 
   return (

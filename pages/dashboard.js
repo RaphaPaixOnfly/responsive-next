@@ -1,59 +1,36 @@
-import { getSession } from 'next-auth/react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
-import nookies from 'nookies';
-import { Bar } from 'react-chartjs-2';
+import { useRouter } from 'next/router';
 
-export async function getServerSideProps(ctx) {
-  const cookies = nookies.get(ctx);
-  const token = cookies['auth-token'];
+export default function Dashboard() {
+  const router = useRouter();
+  const { token } = router.query;
+  const [data, setData] = useState(null);
 
-  const session = await getSession(ctx);
-
-  if (!session) {
-    return {
-      redirect: {
-        destination: '/login',
-        permanent: false,
-      },
-    };
-  }
-
-  const { email } = session.user;
-
-  // Puxar dados do Xano usando o email e token
-  const res = await axios.get(`https://x8ki-letl-twmt.n7.xano.io/api:spr2iDvK/diagnostico_gestao_de_viagens`, {
-    params: { email, token },
-  });
-
-  const data = res.data;
-
-  return {
-    props: { data },
-  };
-}
-
-function Dashboard({ data }) {
-  const chartData = {
-    labels: data.labels,
-    datasets: [
-      {
-        label: 'Dataset',
-        backgroundColor: 'rgba(75,192,192,1)',
-        borderColor: 'rgba(75,192,192,1)',
-        borderWidth: 1,
-        hoverBackgroundColor: 'rgba(75,192,192,0.4)',
-        hoverBorderColor: 'rgba(75,192,192,1)',
-        data: data.values,
-      },
-    ],
-  };
+  useEffect(() => {
+    if (token) {
+      // Fazer a requisição GET ao Xano usando o token
+      axios.get(`https://xano-api-url/endpoint?token=${token}`)
+        .then(response => {
+          setData(response.data);
+        })
+        .catch(error => {
+          console.error('Error fetching data from Xano:', error.message);
+        });
+    }
+  }, [token]);
 
   return (
     <div>
       <h1>Dashboard</h1>
-      <Bar data={chartData} />
+      {data ? (
+        <div>
+          <h2>Dados do Xano:</h2>
+          <pre>{JSON.stringify(data, null, 2)}</pre>
+        </div>
+      ) : (
+        <p>Carregando...</p>
+      )}
     </div>
   );
 }
-
-export default Dashboard;
