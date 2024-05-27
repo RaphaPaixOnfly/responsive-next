@@ -1,14 +1,29 @@
-.barContainer {
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .barContainer {
     position: relative;
     width: 100%;
-    height: 20px;
+    height: 10px;
     background-color: #ddd;
-    margin-bottom: 10px;
+    border-radius: 5px;
   }
   
   .bar {
     position: absolute;
     height: 100%;
     background-color: #4caf50;
+    border-radius: 5px;
+  }
+  
+  .label {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #4caf50;
   }
   

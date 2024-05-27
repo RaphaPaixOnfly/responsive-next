@@ -37,12 +37,21 @@ import {
     const options = {
       responsive: true,
       maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: false,
+        },
+        tooltip: {
+          enabled: false,
+        },
+      },
     };
   
     if (type === 'doughnut') {
       return (
         <div className="chart-container">
           <Doughnut data={chartData} options={options} />
+          <div className="percentage-label">{data[0]}%</div>
         </div>
       );
     } else if (type === 'bar') {

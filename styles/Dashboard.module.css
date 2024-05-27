@@ -16,6 +16,8 @@
     width: 33%;
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
   }
   
   .column2 {
@@ -49,17 +51,35 @@
     height: 200px;
   }
   
+  .percentage-label {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: #4caf50;
+  }
+  
   .barContainer {
     position: relative;
     width: 100%;
-    height: 20px;
+    height: 10px;
     background-color: #ddd;
     margin-bottom: 10px;
+    border-radius: 5px;
   }
   
   .bar {
     position: absolute;
     height: 100%;
     background-color: #4caf50;
+    border-radius: 5px;
+  }
+  
+  .label {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #4caf50;
   }
   
