@@ -1,5 +1,7 @@
 .dashboard {
     padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
   }
   
   .row {
@@ -26,10 +28,22 @@
     text-align: center;
   }
   
+  .chart-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+  }
+  
   .chart-canvas {
     width: 100% !important;
-    max-width: 300px;
+    max-width: 200px;
     height: 200px !important;
+  }
+  
+  .text-container {
+    flex: 1;
+    padding-left: 20px;
   }
   
   .bar-container {
