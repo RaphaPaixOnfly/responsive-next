@@ -3,34 +3,36 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 
 export default function Dashboard() {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
   const router = useRouter();
   const { token } = router.query;
-  const [data, setData] = useState(null);
 
   useEffect(() => {
     if (token) {
-      // Fazer a requisição GET ao Xano usando o token
-      axios.get(`https://xano-api-url/endpoint?token=${token}`)
+      // Fazendo a requisição ao Xano usando o token como parâmetro
+      axios.get(`https://x8ki-letl-twmt.n7.xano.io/api:spr2iDvK/diagnostico_gestao_de_viagens?token=${token}`)
         .then(response => {
           setData(response.data);
         })
         .catch(error => {
-          console.error('Error fetching data from Xano:', error.message);
+          setError(error);
         });
     }
   }, [token]);
 
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  if (!data) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div>
       <h1>Dashboard</h1>
-      {data ? (
-        <div>
-          <h2>Dados do Xano:</h2>
-          <pre>{JSON.stringify(data, null, 2)}</pre>
-        </div>
-      ) : (
-        <p>Carregando...</p>
-      )}
+      <pre>{JSON.stringify(data, null, 2)}</pre>
     </div>
   );
 }
