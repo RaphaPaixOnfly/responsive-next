@@ -1,14 +1,15 @@
-import { getSession } from 'next-auth/client';
+import { getSession } from 'next-auth/react';
 import corsMiddleware from '../../middleware/corsMiddleware';
 
-let storedToken = null; // Variável global para armazenar o token (para fins de demonstração)
-
 export default async function handler(req, res) {
-  await corsMiddleware(req, res); // Aplica o middleware CORS
+  await corsMiddleware(req, res);
 
   if (req.method === 'GET') {
-    if (storedToken) {
-      res.status(200).json({ token: storedToken });
+    const session = await getSession({ req });
+
+    if (session) {
+      const token = session.token; // ajuste aqui para pegar o token da sessão
+      res.status(200).json({ token });
     } else {
       res.status(404).json({ error: 'Token not found' });
     }
