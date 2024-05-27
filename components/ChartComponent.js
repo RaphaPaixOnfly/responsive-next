@@ -7,6 +7,7 @@ import {
     BarElement,
   } from 'chart.js';
   import { Doughnut, Bar } from 'react-chartjs-2';
+  import styles from '../styles/Dashboard.module.css';
   
   ChartJS.register(ArcElement, Tooltip, CategoryScale, LinearScale, BarElement);
   
@@ -31,19 +32,25 @@ import {
           display: false,
         },
       },
+      layout: {
+        padding: {
+          top: 20,
+          bottom: 20,
+        },
+      },
     };
   
     if (type === 'doughnut') {
       return (
-        <div className="chart-container">
+        <div className={styles.chartContainer}>
           <h2>Geral</h2>
           <Doughnut data={chartData} options={options} />
-          <div className="percentage-label">{data[0]}%</div>
+          <div className={styles.percentageLabel}>{data[0]}%</div>
         </div>
       );
     } else if (type === 'bar') {
       return (
-        <div className="chart-container">
+        <div className={styles.chartContainer}>
           <Bar data={chartData} options={options} />
         </div>
       );
