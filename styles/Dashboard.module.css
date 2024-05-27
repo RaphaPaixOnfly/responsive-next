@@ -52,8 +52,9 @@
   .chart-container {
     position: relative;
     width: 100%;
-    max-width: 200px; /* Tamanho fixo do gráfico */
-    height: 200px; /* Tamanho fixo do gráfico */
+    max-width: 300px; /* Limitar o tamanho do gráfico */
+    height: 300px; /* Limitar o tamanho do gráfico */
+    max-height: 300px; /* Limitar a altura máxima do gráfico */
   }
   
   .percentage-label {
