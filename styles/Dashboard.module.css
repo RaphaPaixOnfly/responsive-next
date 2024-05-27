@@ -49,11 +49,11 @@
     text-align: center;
   }
   
-  .chartContainer {
+  .chart-container {
     position: relative;
     width: 100%;
-    max-width: 200px;
-    height: 200px;
+    max-width: 200px; /* Tamanho fixo do gráfico */
+    height: 200px; /* Tamanho fixo do gráfico */
   }
   
   .percentage-label {
