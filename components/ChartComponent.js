@@ -2,22 +2,13 @@ import {
     Chart as ChartJS,
     ArcElement,
     Tooltip,
-    Legend,
     CategoryScale,
     LinearScale,
     BarElement,
   } from 'chart.js';
   import { Doughnut, Bar } from 'react-chartjs-2';
   
-  // Registrando elementos necessários
-  ChartJS.register(
-    ArcElement,
-    Tooltip,
-    Legend,
-    CategoryScale,
-    LinearScale,
-    BarElement
-  );
+  ChartJS.register(ArcElement, Tooltip, CategoryScale, LinearScale, BarElement);
   
   const ChartComponent = ({ type, data, labels }) => {
     const chartData = {
@@ -28,8 +19,6 @@ import {
           data: data,
           backgroundColor: ['#4caf50', '#ddd'],
           borderWidth: 1,
-          cutout: '50%',
-          rotation: 180,
         },
       ],
     };
@@ -45,6 +34,8 @@ import {
           enabled: false,
         },
       },
+      rotation: -90,
+      circumference: 180,
     };
   
     if (type === 'doughnut') {

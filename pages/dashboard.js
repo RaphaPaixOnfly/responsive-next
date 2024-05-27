@@ -56,25 +56,21 @@ export default function Dashboard() {
         <div className={styles.column}>
           <HorizontalBar percentage={data.operacional} />
           <h2>Operacional</h2>
-          <p>Desempenho: {data.operacional}%</p>
           <p>Texto aleatório sobre o tópico Operacional.</p>
         </div>
         <div className={styles.column}>
           <HorizontalBar percentage={data.tecauto} />
           <h2>Automação e Tecnologia</h2>
-          <p>Desempenho: {data.tecauto}%</p>
           <p>Texto aleatório sobre o tópico Automação e Tecnologia.</p>
         </div>
         <div className={styles.column}>
           <HorizontalBar percentage={data.controlecustos} />
           <h2>Controle de Custos</h2>
-          <p>Desempenho: {data.controlecustos}%</p>
           <p>Texto aleatório sobre o tópico Controle de Custos.</p>
         </div>
         <div className={styles.column}>
           <HorizontalBar percentage={data.planejamento} />
           <h2>Planejamento</h2>
-          <p>Desempenho: {data.planejamento}%</p>
           <p>Texto aleatório sobre o tópico Planejamento.</p>
         </div>
       </div>
