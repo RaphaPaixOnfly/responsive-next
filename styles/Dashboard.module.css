@@ -1,6 +1,7 @@
 .dashboard {
     padding: 20px;
     max-width: 1200px;
+    max-height: 800px;
     margin: 0 auto;
   }
   
@@ -20,6 +21,8 @@
     align-items: center;
     padding-right: 10px;
     border-right: 1px solid #ccc;
+    max-height: 200px;
+    max-width: 200px;
   }
   
   .column2 {
