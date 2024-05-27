@@ -1,0 +1,29 @@
+.dashboard {
+    padding: 20px;
+  }
+  
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .column {
+    flex: 1;
+    margin: 0 10px;
+  }
+  
+  .column h2 {
+    text-align: center;
+  }
+  
+  .column p {
+    text-align: center;
+  }
+  
+  canvas {
+    width: 100% !important;
+    height: 300px !important;
+  }
+  
