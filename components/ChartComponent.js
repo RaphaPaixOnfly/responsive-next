@@ -27,6 +27,9 @@ import {
           label: 'Desempenho',
           data: data,
           backgroundColor: ['#4caf50', '#ddd'],
+          borderWidth: 1,
+          cutout: '50%',
+          rotation: 180,
         },
       ],
     };

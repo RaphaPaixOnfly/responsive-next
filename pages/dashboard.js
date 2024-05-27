@@ -34,18 +34,20 @@ export default function Dashboard() {
 
   return (
     <div className={styles.dashboard}>
-      <h1>Dashboard</h1>
       <div className={styles.row}>
-        <div className={styles.column}>
+        <div className={styles.column1}>
           <div className={styles.chartContainer}>
             <ChartComponent
               type="doughnut"
               data={[data.geral, 100 - data.geral]}
               labels={['Desempenho Geral', '']}
             />
-            <div className={styles.textContainer}>
-              <p>Desempenho Geral: {data.geral}%</p>
-            </div>
+          </div>
+        </div>
+        <div className={styles.column2}>
+          <div className={styles.textContainer}>
+            <p>Desempenho Geral: {data.geral}%</p>
+            <p>Texto sobre o resultado: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac ipsum nec arcu varius pretium. Sed vel arcu sit amet nunc facilisis fermentum.</p>
           </div>
         </div>
       </div>
