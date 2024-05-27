@@ -42,7 +42,7 @@ const ChartComponent = ({ data, labels, type }) => {
     }
   }, [data, labels, type]);
 
-  return <canvas ref={chartRef} />;
+  return <canvas ref={chartRef} className="chart-canvas" />;
 };
 
 export default ChartComponent;

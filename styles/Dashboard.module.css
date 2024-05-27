@@ -22,7 +22,7 @@
     text-align: center;
   }
   
-  canvas {
+  .chart-canvas {
     width: 100% !important;
     height: 300px !important;
   }
