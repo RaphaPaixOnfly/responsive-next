@@ -122,9 +122,6 @@
     .row {
       justify-content: space-between;
     }
-    .linha2{
-        display: flexbox;
-      }
   }
   .Dashboard_percentageLabel__0tA6Z{
     display:none;
