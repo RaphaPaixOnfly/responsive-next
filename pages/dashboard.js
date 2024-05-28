@@ -49,7 +49,7 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
-      <div className={styles['dashboard-row']}>
+      <div className={styles['dashboard-columns']}>
         <div className={styles['dashboard-column']}>
           <HorizontalBar percentage={data.operacional} />
           <h2>Operacional</h2>
