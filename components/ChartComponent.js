@@ -38,6 +38,8 @@ import {
           display: false,
         },
       },
+      rotation: -Math.PI,
+      circumference: Math.PI,
     };
   
     if (type === 'doughnut') {

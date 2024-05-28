@@ -56,7 +56,7 @@
   
   .dashboard-column h2 {
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
     color: black;
   }
   
@@ -64,15 +64,15 @@
     position: relative;
     width: 100%;
     max-width: 200px;
-    height: 200px;
+    height: 100px; /* Diminuir altura do gráfico */
   }
   
   .dashboard-percentage-label {
     position: absolute;
-    bottom: -30px;
+    bottom: -20px;
     left: 50%;
-    transform: translate(-50%, 0);
-    font-size: 24px;
+    transform: translateX(-50%);
+    font-size: 16px; /* Diminuir tamanho do texto */
     font-weight: bold;
   }
   
