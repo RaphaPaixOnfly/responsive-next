@@ -13,7 +13,6 @@ export default function Dashboard() {
 
   useEffect(() => {
     if (token) {
-      // Fazendo a requisição ao Xano usando o token como parâmetro
       axios.get(`https://x8ki-letl-twmt.n7.xano.io/api:spr2iDvK/diagnostico_gestao_de_viagens?token=${token}`)
         .then(response => {
           setData(response.data[0]);
