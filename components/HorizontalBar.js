@@ -1,20 +1,27 @@
-const getBarColor = (value) => {
-    if (value >= 70) return '#4caf50'; // Verde
-    if (value >= 40) return '#ffeb3b'; // Amarelo
-    return '#f44336'; // Vermelho
+import styles from '../styles/Dashboard.module.css';
+
+const HorizontalBar = ({ percentage }) => {
+  const getBackgroundColor = (value) => {
+    if (value >= 70) return '#4caf50'; // Green
+    if (value >= 40 && value < 70) return '#ffeb3b'; // Yellow
+    if (value < 40) return '#f44336'; // Red
+    return '#2196f3'; // Light Blue for 100%
   };
-  
-  const HorizontalBar = ({ percentage }) => {
-    return (
-      <div className="barContainer">
-        <div
-          className="bar"
-          style={{ width: `${percentage}%`, backgroundColor: getBarColor(percentage) }}
-        ></div>
-        <div className="label" style={{ color: getBarColor(percentage) }}>{percentage}</div>
+
+  return (
+    <div className={styles['dashboard-bar-container']}>
+      <div
+        className={styles['dashboard-bar']}
+        style={{
+          width: `${percentage}%`,
+          backgroundColor: getBackgroundColor(percentage),
+        }}
+      ></div>
+      <div className={styles['dashboard-percentage-label']}>
+        {percentage}
       </div>
-    );
-  };
-  
-  export default HorizontalBar;
-  
+    </div>
+  );
+};
+
+export default HorizontalBar;
