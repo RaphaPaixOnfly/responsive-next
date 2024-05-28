@@ -10,13 +10,6 @@ import {
   
   ChartJS.register(ArcElement, Tooltip, CategoryScale, LinearScale, BarElement);
   
-  const getBackgroundColor = (value) => {
-    if (value >= 70) return '#4caf50'; // Green
-    if (value >= 40 && value < 70) return '#ffeb3b'; // Yellow
-    if (value < 40) return '#f44336'; // Red
-    return '#2196f3'; // Light Blue for 100%
-  };
-  
   const ChartComponent = ({ type, data, labels }) => {
     const chartData = {
       labels: labels,
@@ -24,7 +17,7 @@ import {
         {
           label: 'Desempenho',
           data: data,
-          backgroundColor: [getBackgroundColor(data[0]), '#ddd'],
+          backgroundColor: ['#4caf50', '#ddd'],
           borderWidth: 1,
         },
       ],
@@ -42,13 +35,15 @@ import {
   
     if (type === 'doughnut') {
       return (
-        <div className="chart-container">
+        <div className="chartContainer">
+          <h2>Desempenho Geral</h2>
           <Doughnut data={chartData} options={options} />
+          <div className="percentageLabel">{data[0]}</div>
         </div>
       );
     } else if (type === 'bar') {
       return (
-        <div className="chart-container">
+        <div className="chartContainer">
           <Bar data={chartData} options={options} />
         </div>
       );

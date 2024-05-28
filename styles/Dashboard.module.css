@@ -1,17 +1,17 @@
-.dashboard-container {
+.dashboard {
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
   }
   
-  .dashboard-row {
+  .row {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 40px;
   }
   
-  .dashboard-column1 {
+  .column1 {
     width: 33%;
     display: flex;
     flex-direction: column;
@@ -21,7 +21,7 @@
     margin-right: 3px;
   }
   
-  .dashboard-column2 {
+  .column2 {
     width: 67%;
     display: flex;
     flex-direction: column;
@@ -31,14 +31,14 @@
     font-size: 14px;
   }
   
-  .dashboard-text-container {
+  .textContainer {
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100%;
   }
   
-  .dashboard-column {
+  .column {
     flex: 1;
     margin: 0 5px;
     display: flex;
@@ -47,27 +47,26 @@
     justify-content: center;
     padding: 10px;
     border-left: 1px solid #ccc;
-    box-sizing: border-box;
   }
   
-  .dashboard-column:first-child {
+  .column:first-child {
     border-left: none;
   }
   
-  .dashboard-column h2 {
+  .column h2 {
     text-align: center;
     font-size: 16px;
     color: black;
   }
   
-  .chart-container {
+  .chartContainer {
     position: relative;
     width: 100%;
     max-width: 200px;
     height: 200px;
   }
   
-  .dashboard-percentage-label {
+  .percentageLabel {
     position: absolute;
     bottom: -30px;
     left: 50%;
@@ -76,7 +75,7 @@
     font-weight: bold;
   }
   
-  .dashboard-bar-container {
+  .barContainer {
     position: relative;
     width: 100%;
     height: 10px;
@@ -85,23 +84,23 @@
     border-radius: 5px;
   }
   
-  .dashboard-bar {
+  .bar {
     position: absolute;
     height: 100%;
     border-radius: 5px;
   }
   
-  .dashboard-label {
+  .label {
     margin-top: 5px;
     font-size: 14px;
   }
   
-  @media (max-width: 1024px) {
-    .dashboard-row {
+  @media (max-width: 768px) {
+    .row {
       flex-wrap: wrap;
     }
   
-    .dashboard-column1, .dashboard-column2 {
+    .column1, .column2 {
       width: 100%;
       border-right: none;
       margin-right: 0;
@@ -109,18 +108,18 @@
       padding: 10px 0;
     }
   
-    .dashboard-column2 {
+    .column2 {
       padding-left: 0;
       text-align: center;
     }
   
-    .dashboard-column {
+    .column {
       width: 48%;
       margin-bottom: 20px;
       padding: 10px;
     }
   
-    .dashboard-row {
+    .row {
       justify-content: space-between;
     }
   }
