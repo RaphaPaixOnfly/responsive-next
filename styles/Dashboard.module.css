@@ -20,6 +20,7 @@
     align-items: center;
     padding-right: 10px;
     border-right: 1px solid #ccc;
+    margin-right: 3px;
   }
   
   .column2 {
@@ -28,6 +29,7 @@
     flex-direction: column;
     justify-content: center;
     padding-left: 20px;
+    margin-left: 3px;
   }
   
   .column {
@@ -47,13 +49,15 @@
   
   .column h2 {
     text-align: center;
+    font-size: 18px; /* Menor tamanho para o título */
+    color: black; /* Cor preta para o título */
   }
   
   .chartContainer {
     position: relative;
     width: 100%;
-    max-width: 300px; /* Limitar o tamanho do gráfico */
-    height: 300px; /* Limitar o tamanho do gráfico */
+    max-width: 200px; /* Menor tamanho do gráfico */
+    height: 200px; /* Menor tamanho do gráfico */
   }
   
   .canvas {
@@ -63,9 +67,9 @@
   
   .percentageLabel {
     position: absolute;
-    top: 80%;
+    bottom: -30px; /* Posição do número de desempenho geral abaixo do gráfico */
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, 0);
     font-size: 24px;
     font-weight: bold;
     color: #4caf50;
