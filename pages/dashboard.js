@@ -43,13 +43,14 @@ export default function Dashboard() {
         </div>
         <div className={styles.column2}>
           <div className={styles.textContainer}>
-            <h2>Geral</h2>
+            
             <div className={styles.percentageLabel}>{data.geral}</div>
             <p>Texto sobre o resultado: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac ipsum nec arcu varius pretium. Sed vel arcu sit amet nunc facilisis fermentum.</p>
           </div>
         </div>
       </div>
       <div className={styles.row}>
+        <div class="linha2">
         <div className={styles.column}>
           <HorizontalBar percentage={data.operacional} />
           <h2>Operacional</h2>
@@ -69,6 +70,7 @@ export default function Dashboard() {
           <HorizontalBar percentage={data.planejamento} />
           <h2>Planejamento</h2>
           <p>Texto aleatório sobre o tópico Planejamento.</p>
+        </div>
         </div>
       </div>
     </div>
