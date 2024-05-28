@@ -38,16 +38,12 @@ import {
           display: false,
         },
       },
-      rotation: -Math.PI, // Começa da extremidade de baixo
-      circumference: Math.PI, // Metade de um círculo
     };
   
     if (type === 'doughnut') {
       return (
         <div className="chart-container">
-          <h2>Geral</h2>
           <Doughnut data={chartData} options={options} />
-          <div className="dashboard-percentage-label">{data[0]}</div>
         </div>
       );
     } else if (type === 'bar') {
