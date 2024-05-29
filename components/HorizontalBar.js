@@ -20,7 +20,6 @@ const HorizontalBar = ({ percentage }) => {
       <div className={styles['dashboard-percentage-label']}>
         {percentage}
         style={{
-          width: `${percentage}%`,
           backgroundColor: getBackgroundColor(percentage),
         }}
       </div>
