@@ -24,21 +24,22 @@ export default function Home() {
         <main className={styles.main}>
           <div className={styles.column1}>
             <h1 className={styles.title}>Diagnóstico de Viagens Corporativas</h1>
-            <h2 className={styles.subtitle}>Subtítulo explicativo</h2>
-            <p className={styles.item}>Item 1: Explicação sobre o diagnóstico.</p>
-            <p className={styles.item}>Item 2: Explicação sobre o diagnóstico.</p>
-            <p className={styles.item}>Item 3: Explicação sobre o diagnóstico.</p>
-            <p className={styles.item}>Item 4: Explicação sobre o diagnóstico.</p>
+            <p className={styles.item}>Obtenha um diagnóstico personalizado da gestão de viagens da sua empresa de forma rápida e gratuita. Prepare-se para em apenas alguns minutinhos receber um feedback completo. Comece já, gratuitamente.</p>
+            <h2 className={styles.subtitle}>AVALIAMOS AS SEGUINTES MÉTRICAS</h2>
+            <p className={styles.item}>Item 1: Operacional</p>
+            <p className={styles.item}>Item 2: Tecnologia e Automação</p>
+            <p className={styles.item}>Item 3: Controle de Custos</p>
+            <p className={styles.item}>Item 4: Planejamento</p>
           </div>
           <div className={styles.column2}>
             <div className={`${styles.card} ${styles['card-top']}`} onClick={() => handleRedirect('iframe1')}>
-              <h2>Estratégia</h2>
+              <h2>Diagnóstico do Viajante</h2>
             </div>
             <div className={`${styles.card} ${styles['card-top']}`} onClick={() => handleRedirect('iframe2')}>
-              <h2>UX Design</h2>
+              <h2>Diagnóstico do Gestor</h2>
             </div>
             <div className={`${styles.card} ${styles['card-bottom']}`} onClick={() => handleRedirect('iframe3')}>
-              <h2>Desenvolvimento</h2>
+              <h2>Disgnóstico do Financeiro</h2>
             </div>
           </div>
         </main>
