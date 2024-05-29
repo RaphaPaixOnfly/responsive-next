@@ -40,7 +40,7 @@ export default function Dashboard() {
             data={[data.geral, 100 - data.geral]}
             labels={['Desempenho Geral', '']}
           />
-          <div className={styles['dashboard-percentage-label']}>{data.geral}</div>
+          <div className={styles['dashboard-percentage-labelGeral']}>{data.geral}</div>
         </div>
         <div className={styles['dashboard-column2']}>
           <div className={styles['dashboard-text-container']}>
