@@ -82,8 +82,7 @@
     font-weight: bold;
   }
   .geral {
-    position: absolute;
-    bottom: -30px;
+    
     left: 50%;
     transform: translate(-50%, 0);
     font-size: 24px;
