@@ -10,6 +10,7 @@
     border-radius: 20px; /* Borda arredondada azul */
     border: 2px solid #00A6FC;
     background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('/imagem-fundo.jpg');
+    color: #0000FF; /* Texto azul */
   }
   
   .main {
