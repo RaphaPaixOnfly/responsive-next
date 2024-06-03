@@ -2,6 +2,9 @@ import { useState } from 'react';
 import Head from 'next/head';
 import Script from 'next/script';
 import styles from '../styles/Home.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCog, faLaptopCode, faDollarSign, faChartLine } from '@fortawesome/free-solid-svg-icons';
+
 
 export default function Home() {
   const [iframeId, setIframeId] = useState('');
@@ -23,13 +26,26 @@ export default function Home() {
       {!iframeId ? (
         <main className={styles.main}>
           <div className={styles.column1}>
-            <h1 className={styles.title}>Diagnóstico de Viagens Corporativas</h1>
+            <h1 className={styles.title}>Diagnóstico de Gestão de Viagens Corporativas</h1>
             <p className={styles.item}>Obtenha um diagnóstico personalizado da gestão de viagens da sua empresa de forma rápida e gratuita. Prepare-se para em apenas alguns minutinhos receber um feedback completo. Comece já, gratuitamente.</p>
-            <h2 className={styles.subtitle}>AVALIAMOS AS SEGUINTES MÉTRICAS</h2>
-            <p className={styles.item}>Item 1: Operacional</p>
-            <p className={styles.item}>Item 2: Tecnologia e Automação</p>
-            <p className={styles.item}>Item 3: Controle de Custos</p>
-            <p className={styles.item}>Item 4: Planejamento</p>
+            <h3 className={styles.subtitle}>AVALIAMOS AS SEGUINTES MÉTRICAS</h3>
+            <div className={styles.iconItem}>
+              <FontAwesomeIcon icon={faCog} className={styles.icon}/>
+              <p>Operacional</p>
+            </div>
+            <div className={styles.iconItem}>
+              <FontAwesomeIcon icon={faLaptopCode} className={styles.icon}/>
+              <p>Tecnologia e Automação</p>
+            </div>
+            <div className={styles.iconItem}>
+              <FontAwesomeIcon icon={faDollarSign} className={styles.icon}/>
+              <p>Controle de Custos</p>
+            </div>
+            <div className={styles.iconItem}>
+              <FontAwesomeIcon icon={faChartLine} className={styles.icon}/>
+              <p>Planejamento</p>
+            </div>
+
           </div>
           <div className={styles.column2}>
             <div className={`${styles.card} ${styles['card-top']}`} onClick={() => handleRedirect('iframe1')}>

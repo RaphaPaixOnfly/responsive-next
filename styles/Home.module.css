@@ -101,4 +101,20 @@
       margin-top: 20px;
     }
   }
+  .iconItem {
+    display: flex;
+    align-items: center;
+
+  }
+  
+  .iconItem p {
+    margin-left: 10px;
+    color: #000000;
+  }
+  
+  .icon {
+    font-size: 15px; /* Ajuste o tamanho do ícone conforme necessário */
+    width: 15px;
+    height: 15px;
+  }
   

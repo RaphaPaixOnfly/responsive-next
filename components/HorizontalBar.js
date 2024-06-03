@@ -2,6 +2,7 @@ import styles from '../styles/Dashboard.module.css';
 
 const HorizontalBar = ({ percentage }) => {
   const getBackgroundColor = (value) => {
+    if (value == 100) return '#0000ff'; // blue
     if (value >= 70) return '#4caf50'; // Green
     if (value >= 40 && value < 70) return '#ffeb3b'; // Yellow
     if (value < 40) return '#f44336'; // Red
