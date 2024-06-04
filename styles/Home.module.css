@@ -34,6 +34,7 @@
     gap: 10px;
     margin-top: 90px; /* Margem superior */
     justify-content: center; /* Centralizar os itens */
+    align-items: center;
   }
   
   .column2 .card {
@@ -111,10 +112,38 @@
     margin-left: 10px;
     color: #000000;
   }
-  
+  .column2 button{
+      color: white;
+      background-color: #FF5A05;
+      font-size: 20px;
+      padding: 12px;
+      border-radius: 15px;
+      border-color: white;
+      width: 60%;
+      margin-top: -40px;
+      margin-left: 60px;
+  }
   .icon {
     font-size: 15px; /* Ajuste o tamanho do ícone conforme necessário */
     width: 15px;
     height: 15px;
   }
+  .imageContainer {
+    width: 300px; /* Tamanho do círculo */
+    height: 300px; /* Tamanho do círculo */
+    border-radius: 50%; /* Faz o contêiner ser um círculo */
+    overflow: hidden; /* Esconde as partes da imagem que saem do contêiner */
+    display: flex;
+    margin-left: 60px;
+    margin-top: -40px;
+  }
   
+  .responsiveImage {
+    object-fit: cover; /* Faz a imagem cobrir todo o contêiner */
+  }
+  
+  @media (max-width: 768px) {
+    .imageContainer {
+      display: none;
+    }
+  }

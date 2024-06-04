@@ -1,20 +1,29 @@
-const getBarColor = (value) => {
-    if (value >= 70) return '#4caf50'; // Verde
-    if (value >= 40) return '#ffeb3b'; // Amarelo
-    return '#f44336'; // Vermelho
-  };
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+  }
   
-  const HorizontalBar = ({ percentage }) => {
-    return (
-      <div className="barContainer">
-        <div
-          className="bar"
-          style={{ width: `${percentage}%`, backgroundColor: getBarColor(percentage) }}
-        ></div>
-        <div className="label" style={{ color: getBarColor(percentage) }}>{percentage}</div>
-      </div>
-    );
-  };
+  .barContainer {
+    position: relative;
+    width: 100%;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 5px;
+  }
   
-  export default HorizontalBar;
+  .bar {
+    position: absolute;
+    height: 100%;
+    background-color: #4caf50;
+    border-radius: 5px;
+  }
+  
+  .label {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #4caf50;
+  }
   

@@ -4,7 +4,7 @@ import Script from 'next/script';
 import styles from '../styles/Home.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog, faLaptopCode, faDollarSign, faChartLine } from '@fortawesome/free-solid-svg-icons';
-
+import Image from 'next/image';
 
 export default function Home() {
   const [iframeId, setIframeId] = useState('');
@@ -27,7 +27,7 @@ export default function Home() {
         <main className={styles.main}>
           <div className={styles.column1}>
             <h1 className={styles.title}>Diagnóstico de Gestão de Viagens Corporativas</h1>
-            <p className={styles.item}>Obtenha um diagnóstico personalizado da gestão de viagens da sua empresa de forma rápida e gratuita. Prepare-se para em apenas alguns minutinhos receber um feedback completo. Comece já, gratuitamente.</p>
+            <p className={styles.item}>Obtenha um diagnóstico personalizado da gestão de viagens da sua empresa de forma rápida e gratuita. Prepare-se para em apenas alguns minutinhos receber um feedback completo.</p>
             <h3 className={styles.subtitle}>AVALIAMOS AS SEGUINTES MÉTRICAS</h3>
             <div className={styles.iconItem}>
               <FontAwesomeIcon icon={faCog} className={styles.icon}/>
@@ -45,19 +45,33 @@ export default function Home() {
               <FontAwesomeIcon icon={faChartLine} className={styles.icon}/>
               <p>Planejamento</p>
             </div>
-
+            
           </div>
+          
           <div className={styles.column2}>
-            <div className={`${styles.card} ${styles['card-top']}`} onClick={() => handleRedirect('iframe1')}>
-              <h2>Diagnóstico do Viajante</h2>
+            <div className={styles.imageContainer}>
+              <Image
+                src="/Tecnologia-para-viagens-corporativas.jpg" // substitua pelo caminho da sua imagem
+                alt="Descrição da imagem"
+                width={300} // substitua pela largura desejada
+                height={300} // substitua pela altura desejada
+                className={styles.responsiveImage}
+              />
             </div>
-            <div className={`${styles.card} ${styles['card-top']}`} onClick={() => handleRedirect('iframe2')}>
-              <h2>Diagnóstico do Gestor</h2>
+            <div className={styles.column2} onClick={() => handleRedirect('iframe1')}>
+                <button>Começar</button>
+              </div>
+              {/*<div className={`${styles.card} ${styles['card-top']}`} onClick={() => handleRedirect('iframe1')}>
+                <h2>Diagnóstico do Viajante</h2>
+              </div>
+              <div className={`${styles.card} ${styles['card-top']}`} onClick={() => handleRedirect('iframe2')}>
+                <h2>Diagnóstico do Gestor</h2>
+              </div>
+              <div className={`${styles.card} ${styles['card-bottom']}`} onClick={() => handleRedirect('iframe3')}>
+                <h2>Disgnóstico do Financeiro</h2>
+              </div>*/}
             </div>
-            <div className={`${styles.card} ${styles['card-bottom']}`} onClick={() => handleRedirect('iframe3')}>
-              <h2>Disgnóstico do Financeiro</h2>
-            </div>
-          </div>
+          
         </main>
       ) : (
         <div id="merlin-container" className={styles.iframeContainer}></div>
