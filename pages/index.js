@@ -29,21 +29,25 @@ export default function Home() {
             <h1 className={styles.title}>Diagnóstico de Gestão de Viagens Corporativas</h1>
             <p className={styles.item}>Obtenha um diagnóstico personalizado da gestão de viagens da sua empresa de forma rápida e gratuita. Prepare-se para em apenas alguns minutinhos receber um feedback completo.</p>
             <h3 className={styles.subtitle}>AVALIAMOS AS SEGUINTES MÉTRICAS</h3>
-            <div className={styles.iconItem}>
-              <FontAwesomeIcon icon={faCog} className={styles.icon}/>
-              <p>Operacional</p>
+            <div className={styles.iconStruct}>
+              <div className={styles.iconItem}>
+                <FontAwesomeIcon icon={faCog} className={styles.icon}/>
+                <p>Operacional</p>
+              </div>
+              <div className={styles.iconItem}>
+                <FontAwesomeIcon icon={faLaptopCode} className={styles.icon}/>
+                <p>Tecnologia e Automação</p>
+              </div>
             </div>
-            <div className={styles.iconItem}>
-              <FontAwesomeIcon icon={faLaptopCode} className={styles.icon}/>
-              <p>Tecnologia e Automação</p>
-            </div>
-            <div className={styles.iconItem}>
-              <FontAwesomeIcon icon={faDollarSign} className={styles.icon}/>
-              <p>Controle de Custos</p>
-            </div>
-            <div className={styles.iconItem}>
-              <FontAwesomeIcon icon={faChartLine} className={styles.icon}/>
-              <p>Planejamento</p>
+            <div className={styles.iconStruct}>
+              <div className={styles.iconItem}>
+                <FontAwesomeIcon icon={faDollarSign} className={styles.icon}/>
+                <p>Controle de Custos</p>
+              </div>
+              <div className={styles.iconItem}>
+                <FontAwesomeIcon icon={faChartLine} className={styles.icon}/>
+                <p>Planejamento</p>
+              </div>
             </div>
             
           </div>

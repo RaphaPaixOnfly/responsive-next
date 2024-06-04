@@ -32,7 +32,7 @@
   
   .column2 {
     gap: 10px;
-    margin-top: 90px; /* Margem superior */
+    margin-top: 50px; /* Margem superior */
     justify-content: center; /* Centralizar os itens */
     align-items: center;
   }
@@ -105,7 +105,7 @@
   .iconItem {
     display: flex;
     align-items: center;
-
+    margin-right: 50px;
   }
   
   .iconItem p {
@@ -119,9 +119,8 @@
       padding: 12px;
       border-radius: 15px;
       border-color: white;
-      width: 60%;
-      margin-top: -40px;
-      margin-left: 60px;
+      width: 240px;
+      margin-left: 70px;
   }
   .icon {
     font-size: 15px; /* Ajuste o tamanho do ícone conforme necessário */
@@ -134,7 +133,7 @@
     border-radius: 50%; /* Faz o contêiner ser um círculo */
     overflow: hidden; /* Esconde as partes da imagem que saem do contêiner */
     display: flex;
-    margin-left: 40px;
+    margin-left: 60px;
     margin-top: -40px;
   }
   
@@ -149,5 +148,15 @@
     .column2 button{
       width: 100%;
       margin-left: 0;
+    }
+    .iconStruct{
+      margin-top: 0px;
+      display: block;
+    }
+  }
+  @media (min-width: 768px) {
+    .iconStruct{
+      margin-top: 20px;
+      display: inline-flex;
     }
   }
