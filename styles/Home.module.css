@@ -134,7 +134,7 @@
     border-radius: 50%; /* Faz o contêiner ser um círculo */
     overflow: hidden; /* Esconde as partes da imagem que saem do contêiner */
     display: flex;
-    margin-left: 60px;
+    margin-left: 40px;
     margin-top: -40px;
   }
   
@@ -145,5 +145,9 @@
   @media (max-width: 768px) {
     .imageContainer {
       display: none;
+    }
+    .column2 button{
+      width: 100%;
+      margin-left: 0;
     }
   }
