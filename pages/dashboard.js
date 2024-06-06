@@ -44,33 +44,35 @@ export default function Dashboard() {
         </div>
         <div className={styles['dashboard-column2']}>
           <div className={styles['dashboard-text-container']}>
-            <h2>Geral</h2>
+            <h2>Desempenho Geral</h2>
             <p>{data.respostaGeral}</p>
           </div>
         </div>
       </div>
       <div className={styles['dashboard-row2']}>
-        <div className={styles['dashboard-column']}>
-          <HorizontalBar percentage={data.operacional} />
-          <h2>Operacional</h2>
-          <p>{data.respostaOperacional}</p>
+          <div className={styles['dashboard-column']}>
+            <HorizontalBar percentage={data.notaOperacional} nota={data.operacional} topico="Operacional" />
+            
+            <p>{data.respostaOperacional}</p>
+          </div>
+          <div className={styles['dashboard-column']}>
+            <HorizontalBar percentage={data.notaTecauto} nota={data.tecauto} topico="Tecnologia e Automação" />
+            
+            <p>{data.respostaTecauto}</p>
+          </div>
         </div>
-        <div className={styles['dashboard-column']}>
-          <HorizontalBar percentage={data.tecauto} />
-          <h2>Automação e Tecnologia</h2>
-          <p>{data.respostaTecauto}</p>
-        </div>
-        <div className={styles['dashboard-column']}>
-          <HorizontalBar percentage={data.controlecustos} />
-          <h2>Controle de Custos</h2>
-          <p>{data.respostaCusto}</p>
-        </div>
-        <div className={styles['dashboard-column']}>
-          <HorizontalBar percentage={data.planejamento} />
-          <h2>Planejamento</h2>
-          <p>{data.respostaPlanejamento}</p>
+        <div className={styles['dashboard-row2']}>
+          <div className={styles['dashboard-column']}>
+            <HorizontalBar percentage={data.notaControlecustos} nota={data.controlecustos} topico="Controle de Custos" />
+            
+            <p>{data.respostaCusto}</p>
+          </div>
+          <div className={styles['dashboard-column']}>
+            <HorizontalBar percentage={data.notaPlanejamento} nota={data.planejamento} topico="Planejamento" />
+            
+            <p>{data.respostaPlanejamento}</p>
+          </div>
         </div>
       </div>
-    </div>
   );
 }
