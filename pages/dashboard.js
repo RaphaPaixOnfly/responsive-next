@@ -73,6 +73,18 @@ export default function Dashboard() {
             <p>{data.respostaPlanejamento}</p>
           </div>
         </div>
+        <div className={styles['dashboard-row2']}>
+          <div className={styles['dashboard-column']}>
+            <HorizontalBar percentage={data.notaSatisfacaodoviajante} nota={data.satisfacaodoviajante} topico="Satisfação do Viajante" />
+            
+            <p>{data.respostaSatisfacao}</p>
+          </div>
+          <div className={styles['dashboard-column']}>
+            <HorizontalBar percentage={data.notaCompliance} nota={data.compliance} topico="Compliance e Políticas da Empresa" />
+            
+            <p>{data.respostaCompliance}</p>
+          </div>
+        </div>
       </div>
   );
 }
