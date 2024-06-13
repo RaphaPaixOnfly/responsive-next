@@ -36,17 +36,25 @@ export default function Dashboard() {
       <div className={styles['dashboard-ranking']}>
         <div className={styles['dashboard-row']}>
           <div className={styles['dashboard-column1']}>
-            <div className={styles['chart-container']}>
-              <ChartComponent
-                type="doughnut"
-                data={[data.geral, 100 - data.geral]}
-                labels={['Desempenho Geral', '']}
-              />
-              <div className={styles['geral']}>{data.geral}</div>
-            </div>
+          <div className={styles['chart-container']}>
+          <ChartComponent
+            type="radar"
+            data={[data.notaOperacional, data.notaTecauto, data.notaControlecustos, data.notaPlanejamento, data.notaSatisfacaodoviajante, data.notaCompliance]}
+            labels={['Operacional', 'Tecnologia e Automação', 'Controle de Custos', 'Planejamento', 'Satisfação do Viajante', 'Compliance e Políticas']}
+            geral={data.geral} // Passando a nota geral
+          />
+          <div className={styles['geral']}>{data.geral}</div>
+          </div>
             <div className={styles['dashboard-text-container']}>
-              <h2>Desempenho Geral</h2>
-              
+              <h4>Distribuição dos critérios</h4>
+              <p>1</p>
+              <p>2</p>
+              <p>3</p>
+              <p>4</p>
+              <h4>Ranking</h4>
+              <p>1</p>
+              <p>2</p>
+              <p>3</p>
             </div>
           </div>
         </div>
