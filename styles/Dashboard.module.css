@@ -11,7 +11,7 @@
   flex-direction: row;
   overflow: hidden;
   
-   /* Azul muito claro */
+  /* Azul muito claro */
   border-radius: 10px;
   padding: 10px;
 }
@@ -30,7 +30,6 @@
 }
 
 .dashboard-column2 {
-
   font-size: 14px;
 }
 
@@ -113,13 +112,15 @@
   font-weight: bold;
 }
 
-.dashboard-ranking{
+.dashboard-ranking {
   width: 40%;
   max-height: 650px;
 }
-.dashboard-column{
-  width:50%;
+
+.dashboard-column {
+  width: 50%;
 }
+
 .dashboard-text-container {
   display: flex;
   flex-direction: column;
@@ -131,7 +132,8 @@
 .text-with-lock {
   display: flex;
   align-items: center;
-
+  justify-content: space-between;
+  width: 100%;
 }
 
 .criticalIcon {
@@ -170,11 +172,11 @@
   color: blue;
 }
 
-.text-with-lock {
-  justify-content: space-between;
-  width: 100%;
-}
-
 .lockIcon {
   color: gray;
+}
+
+.text-count {
+  margin-left: auto;
+  font-weight: bold;
 }
