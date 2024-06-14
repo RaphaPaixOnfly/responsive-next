@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Script from 'next/script';
 import styles from '../styles/Home.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCog, faLaptopCode, faDollarSign, faChartLine } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faLaptopCode, faDollarSign, faChartLine, faSmile, faShieldAlt } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
 
 export default function Home() {
@@ -49,7 +49,16 @@ export default function Home() {
                 <p>Planejamento</p>
               </div>
             </div>
-            
+            <div className={styles.iconStruct}>
+              <div className={styles.iconItem}>
+                <FontAwesomeIcon icon={faSmile} className={styles.icon}/>
+                <p>Satisfação do Viajante</p>
+              </div>
+              <div className={styles.iconItem}>
+                <FontAwesomeIcon icon={faShieldAlt} className={styles.icon}/>
+                <p>Compliance e Políticas da Empresa</p>
+              </div>
+            </div>
           </div>
           
           <div className={styles.column2}>
@@ -63,18 +72,18 @@ export default function Home() {
               />
             </div>
             <div className={styles.column2} onClick={() => handleRedirect('iframe1')}>
-                <button>Começar</button>
-              </div>
-              {/*<div className={`${styles.card} ${styles['card-top']}`} onClick={() => handleRedirect('iframe1')}>
-                <h2>Diagnóstico do Viajante</h2>
-              </div>
-              <div className={`${styles.card} ${styles['card-top']}`} onClick={() => handleRedirect('iframe2')}>
-                <h2>Diagnóstico do Gestor</h2>
-              </div>
-              <div className={`${styles.card} ${styles['card-bottom']}`} onClick={() => handleRedirect('iframe3')}>
-                <h2>Disgnóstico do Financeiro</h2>
-              </div>*/}
+              <button>Começar</button>
             </div>
+            {/*<div className={`${styles.card} ${styles['card-top']}`} onClick={() => handleRedirect('iframe1')}>
+              <h2>Diagnóstico do Viajante</h2>
+            </div>
+            <div className={`${styles.card} ${styles['card-top']}`} onClick={() => handleRedirect('iframe2')}>
+              <h2>Diagnóstico do Gestor</h2>
+            </div>
+            <div className={`${styles.card} ${styles['card-bottom']}`} onClick={() => handleRedirect('iframe3')}>
+              <h2>Disgnóstico do Financeiro</h2>
+            </div>*/}
+          </div>
           
         </main>
       ) : (

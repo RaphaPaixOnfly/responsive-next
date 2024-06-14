@@ -1,7 +1,7 @@
 .dashboard-container {
   padding: 20px;
   margin: 0 auto;
-  background-color: #eaf1f2; /* Azul muito claro */
+  background-color: #f3f7f7; /* Azul muito claro */
   border-radius: 10px;
   display: flex;
 }
@@ -11,7 +11,7 @@
   flex-direction: row;
   overflow: hidden;
   
-  background-color: #eaf1f2; /* Azul muito claro */
+   /* Azul muito claro */
   border-radius: 10px;
   padding: 10px;
 }
@@ -119,4 +119,62 @@
 }
 .dashboard-column{
   width:50%;
+}
+.dashboard-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 12px;
+}
+
+.text-with-icon,
+.text-with-lock {
+  display: flex;
+  align-items: center;
+
+}
+
+.criticalIcon {
+  color: red;
+  margin-right: 8px;
+}
+
+.developmentIcon {
+  color: #f4ec12;
+  margin-right: 8px;
+}
+
+.acceleratingIcon {
+  color: green;
+  margin-right: 8px;
+}
+
+.excellentIcon {
+  color: blue;
+  margin-right: 8px;
+}
+
+.critical {
+  color: red;
+}
+
+.development {
+  color: #c8bb4c;
+}
+
+.accelerating {
+  color: green;
+}
+
+.excellent {
+  color: blue;
+}
+
+.text-with-lock {
+  justify-content: space-between;
+  width: 100%;
+}
+
+.lockIcon {
+  color: gray;
 }

@@ -4,7 +4,8 @@ import { useRouter } from 'next/router';
 import ChartComponent from '../components/ChartComponent';
 import HorizontalBar from '../components/HorizontalBar';
 import styles from '../styles/Dashboard.module.css';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircle, faLock } from '@fortawesome/free-solid-svg-icons';
 export default function Dashboard() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -45,17 +46,38 @@ export default function Dashboard() {
           />
           <div className={styles['geral']}>{data.geral}</div>
           </div>
-            <div className={styles['dashboard-text-container']}>
-              <h4>Distribuição dos critérios</h4>
-              <p>1</p>
-              <p>2</p>
-              <p>3</p>
-              <p>4</p>
-              <h4>Ranking</h4>
-              <p>1</p>
-              <p>2</p>
-              <p>3</p>
-            </div>
+          <div className={styles['dashboard-text-container']}>
+      <h4>Distribuição dos critérios</h4>
+      <div className={styles['text-with-icon']}>
+        <FontAwesomeIcon icon={faCircle} className={styles.criticalIcon} />
+        <p className={styles.critical}>CRÍTICO</p>
+      </div>
+      <div className={styles['text-with-icon']}>
+        <FontAwesomeIcon icon={faCircle} className={styles.developmentIcon} />
+        <p className={styles.development}>DESENVOLVIMENTO</p>
+      </div>
+      <div className={styles['text-with-icon']}>
+        <FontAwesomeIcon icon={faCircle} className={styles.acceleratingIcon} />
+        <p className={styles.accelerating}>ACELERANDO</p>
+      </div>
+      <div className={styles['text-with-icon']}>
+        <FontAwesomeIcon icon={faCircle} className={styles.excellentIcon} />
+        <p className={styles.excellent}>ÓTIMO</p>
+      </div>
+      <h4>Ranking</h4>
+      <div className={styles['text-with-lock']}>
+        <p>Geral</p>
+        <FontAwesomeIcon icon={faLock} className={styles.lockIcon} />
+      </div>
+      <div className={styles['text-with-lock']}>
+        <p>Mesma indústria</p>
+        <FontAwesomeIcon icon={faLock} className={styles.lockIcon} />
+      </div>
+      <div className={styles['text-with-lock']}>
+        <p>Mesmo porte</p>
+        <FontAwesomeIcon icon={faLock} className={styles.lockIcon} />
+      </div>
+    </div>
           </div>
         </div>
       </div>
