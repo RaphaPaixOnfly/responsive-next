@@ -25,11 +25,11 @@ const calculateCriteriaCounts = (data) => {
   ];
 
   criteriaValues.forEach(value => {
-    if (value <= 25) {
+    if (value < 39) {
       criteriaCounts.critical++;
-    } else if (value <= 50) {
+    } else if (value >= 40 && value < 69) {
       criteriaCounts.development++;
-    } else if (value <= 75) {
+    } else if (value >= 70 && value < 99) {
       criteriaCounts.accelerating++;
     } else {
       criteriaCounts.excellent++;
