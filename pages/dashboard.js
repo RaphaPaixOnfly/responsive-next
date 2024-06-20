@@ -153,12 +153,12 @@ export default function Dashboard() {
         <div className={styles['dashboard-fundamentos']} style={{ display: view === 'details' || window.innerWidth >= 768 ? 'block' : 'none' }}>
           <div className={styles['dashboard-row2']}>
             <div className={styles['dashboard-column']}>
-              <HorizontalBar percentage={data.notaOperacional} nota={data.operacional} topico="Operação" />
+              <HorizontalBar percentage={data.notaOperacional} nota={data.operacional} topico="Atendimento" />
               <p>{data.respostaOperacional}</p>
             </div>
             <div className={styles['dashboard-column']}>
-              <HorizontalBar percentage={data.notaTecauto} nota={data.tecauto} topico="Tecnologia e Automação" />
-              <p>{data.respostaTecauto}</p>
+              <HorizontalBar percentage={data.notaCompliance} nota={data.compliance} topico="Compliance e Políticas da Empresa" />
+              <p>{data.respostaCompliance}</p>
             </div>
           </div>
           <div className={styles['dashboard-row2']}>
@@ -177,11 +177,12 @@ export default function Dashboard() {
               <p>{data.respostaSatisfacao}</p>
             </div>
             <div className={styles['dashboard-column']}>
-              <HorizontalBar percentage={data.notaCompliance} nota={data.compliance} topico="Compliance e Políticas da Empresa" />
-              <p>{data.respostaCompliance}</p>
+              <HorizontalBar percentage={data.notaTecauto} nota={data.tecauto} topico="Tecnologia e Automação" />
+              <p>{data.respostaTecauto}</p>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );

@@ -32,7 +32,7 @@ export default function Home() {
             <div className={styles.iconStruct}>
               <div className={styles.iconItem}>
                 <FontAwesomeIcon icon={faCog} className={styles.icon}/>
-                <p>Operacional</p>
+                <p>Atendimento</p>
               </div>
               <div className={styles.iconItem}>
                 <FontAwesomeIcon icon={faLaptopCode} className={styles.icon}/>

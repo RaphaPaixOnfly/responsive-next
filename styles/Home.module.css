@@ -152,6 +152,7 @@
     .iconStruct{
       margin-top: 0px;
       display: block;
+      font-size: 13px;
     }
   }
   @media (min-width: 768px) {
