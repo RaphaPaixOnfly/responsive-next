@@ -111,6 +111,7 @@
 
 .dashboard-column {
   width: 100%;
+  margin-right: 10px;
 }
 
 .dashboard-text-container {
@@ -198,6 +199,10 @@
     overflow: hidden;
     border-radius: 10px;
 
+  }
+  .dashboard-column {
+    width: 100%;
+    margin-right: 0px;
   }
   .mobile-controls {
     display: flex;
