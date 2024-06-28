@@ -26,51 +26,51 @@ export default function Home() {
       {!iframeId ? (
         <main className={styles.main}>
           <div className={styles.column1}>
+          <div className={styles.imageContainer}>
+              <Image
+                src="/onfly-logo-recortada.png" // substitua pelo caminho da sua imagem
+                alt="Descrição da imagem"
+                width={150} // substitua pela largura desejada
+                height={40} // substitua pela altura desejada
+                className={styles.responsiveImage}
+              />
+            </div>
             <h1 className={styles.title}>Diagnóstico de Gestão de Viagens Corporativas</h1>
-            <p className={styles.item}>Obtenha um diagnóstico personalizado da gestão de viagens da sua empresa de forma rápida e gratuita. Prepare-se para em apenas alguns minutinhos receber um feedback completo.</p>
-            <h3 className={styles.subtitle}>AVALIAMOS AS SEGUINTES MÉTRICAS</h3>
+            <p className={styles.subtitle}>Obtenha um diagnóstico personalizado da gestão de viagens da sua empresa de forma rápida e gratuita.</p>
+            
             <div className={styles.iconStruct}>
               <div className={styles.iconItem}>
                 <FontAwesomeIcon icon={faCog} className={styles.icon}/>
                 <p>Atendimento</p>
               </div>
               <div className={styles.iconItem}>
-                <FontAwesomeIcon icon={faLaptopCode} className={styles.icon}/>
-                <p>Tecnologia e Automação</p>
+                <FontAwesomeIcon icon={faShieldAlt} className={styles.icon}/>
+                <p>Compliance e Políticas da Empresa</p>
               </div>
-            </div>
-            <div className={styles.iconStruct}>
+              
               <div className={styles.iconItem}>
                 <FontAwesomeIcon icon={faDollarSign} className={styles.icon}/>
                 <p>Controle de Custos</p>
-              </div>
+              </div> 
+            </div>
+            <div className={styles.iconStruct}>
               <div className={styles.iconItem}>
                 <FontAwesomeIcon icon={faChartLine} className={styles.icon}/>
                 <p>Planejamento</p>
               </div>
-            </div>
-            <div className={styles.iconStruct}>
               <div className={styles.iconItem}>
                 <FontAwesomeIcon icon={faSmile} className={styles.icon}/>
                 <p>Satisfação do Viajante</p>
               </div>
               <div className={styles.iconItem}>
-                <FontAwesomeIcon icon={faShieldAlt} className={styles.icon}/>
-                <p>Compliance e Políticas da Empresa</p>
-              </div>
+                <FontAwesomeIcon icon={faLaptopCode} className={styles.icon}/>
+                <p>Tecnologia e Automação</p>
+              </div> 
             </div>
           </div>
           
           <div className={styles.column2}>
-            <div className={styles.imageContainer}>
-              <Image
-                src="/Tecnologia-para-viagens-corporativas.jpg" // substitua pelo caminho da sua imagem
-                alt="Descrição da imagem"
-                width={300} // substitua pela largura desejada
-                height={300} // substitua pela altura desejada
-                className={styles.responsiveImage}
-              />
-            </div>
+            
             <div className={styles.column2} onClick={() => handleRedirect('iframe1')}>
               <button>Começar</button>
             </div>

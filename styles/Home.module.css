@@ -1,5 +1,5 @@
 .container {
-    min-height: 100vh;
+    
     padding: 20px; /* Adicionar padding para o border radius */
     display: flex;
     flex-direction: column;
@@ -7,12 +7,13 @@
     align-items: center;
     background-color: #FFFFFF; /* Background branco */
     color: #000000; /* Texto preto */
-    border-radius: 20px; /* Borda arredondada azul */
-    border: 2px solid #00A6FC;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)), url('/imagem-fundo.jpg');
+    
+
     color: #0000FF; /* Texto azul */
   }
-  
+  .title {
+    font-size: 50px; /* Título menor no mobile */
+  }
   .main {
     display: flex;
     flex-direction: row;
@@ -21,13 +22,13 @@
   }
   
   .column1, .column2 {
-    flex: 1;
     padding: 20px;
   }
   
   .column1 {
     display: flex;
     flex-direction: column;
+    width:60%;
   }
   
   .column2 {
@@ -72,9 +73,11 @@
   }
   
   .title, .subtitle, .item {
-    color: #000000; /* Texto preto */
+    color: #555657; /* Texto preto */
   }
-  
+  .subtitle{
+    font-size: 22px;
+  }
   @media (max-width: 768px) {
     .main {
       flex-direction: column;
@@ -87,54 +90,62 @@
       margin-bottom: 10px; /* Mais próximo dos itens acima */
     }
     .title {
-      font-size: 1.5rem; /* Título menor no mobile */
+      font-size: 30px; /* Título menor no mobile */
+      margin-top: 40px;
     }
     .subtitle {
-      font-size: 1.2rem; /* Subtítulo menor no mobile */
+      font-size: 20px; /* Subtítulo menor no mobile */
     }
     .item {
       font-size: 1rem; /* Itens menores no mobile */
+    }
+    .column1 {
+      width: 100%;
     }
   }
   
   @media (min-width: 768px) {
     .column2 .card {
-      margin-top: 20px;
+      margin-top: 10px;
     }
   }
   .iconItem {
     display: flex;
     align-items: center;
-    margin-right: 50px;
+    margin-right: 20px;
+    background-color: #00A6FC;
+    border-radius: 30px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top: 8px;
   }
   
   .iconItem p {
     margin-left: 10px;
     color: #000000;
+    color:white;
+    margin-top: 2px;
+    margin-bottom: 2px;
   }
   .column2 button{
       color: white;
       background-color: #FF5A05;
       font-size: 20px;
       padding: 12px;
-      border-radius: 15px;
+      border-radius: 100px;
       border-color: white;
       width: 240px;
-      margin-left: 70px;
+      
   }
   .icon {
     font-size: 15px; /* Ajuste o tamanho do ícone conforme necessário */
     width: 15px;
     height: 15px;
+    color: white;
   }
   .imageContainer {
-    width: 300px; /* Tamanho do círculo */
-    height: 300px; /* Tamanho do círculo */
+    width: 100px; /* Tamanho do círculo */
     border-radius: 50%; /* Faz o contêiner ser um círculo */
-    overflow: hidden; /* Esconde as partes da imagem que saem do contêiner */
-    display: flex;
-    margin-left: 60px;
-    margin-top: -40px;
   }
   
   .responsiveImage {
@@ -142,9 +153,7 @@
   }
   
   @media (max-width: 768px) {
-    .imageContainer {
-      display: none;
-    }
+    
     .column2 button{
       width: 100%;
       margin-left: 0;
@@ -157,7 +166,7 @@
   }
   @media (min-width: 768px) {
     .iconStruct{
-      margin-top: 20px;
+      
       display: inline-flex;
     }
   }
