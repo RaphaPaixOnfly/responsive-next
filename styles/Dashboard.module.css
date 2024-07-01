@@ -1,5 +1,5 @@
 .dashboard-container {
-  padding: 20px;
+  padding: 25px;
   margin: 0 auto;
   background-color: #f3f7f7; /* Azul muito claro */
   border-radius: 10px;
@@ -119,6 +119,7 @@
   flex-direction: column;
   align-items: flex-start;
   font-size: 12px;
+  padding: 15px;
 }
 
 .text-with-icon,
