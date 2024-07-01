@@ -5,6 +5,7 @@ import styles from '../styles/Home.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog, faLaptopCode, faDollarSign, faChartLine, faSmile, faShieldAlt } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
+import CircularIcon from '../components/CircularIcon'; // Ajuste o caminho conforme necessário
 
 export default function Home() {
   const [iframeId, setIframeId] = useState('');
@@ -71,6 +72,9 @@ export default function Home() {
           
           <div className={styles.column2}>
             
+          <div className={styles.column2}>
+            <CircularIcon handleClick={handleRedirect} />
+          </div>
             <div className={styles.column2} onClick={() => handleRedirect('iframe1')}>
               <button>Começar</button>
             </div>

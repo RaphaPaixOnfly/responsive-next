@@ -1,0 +1,63 @@
+/* components/CircularIcon.module.css */
+
+@keyframes fadeInOut {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  .wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+     /* Ajuste o tamanho conforme necessário */
+    height: 250px; /* Ajuste o tamanho conforme necessário */
+  }
+  
+  .outerCircle {
+    position: absolute;
+    width: 200px; /* Ajuste o tamanho conforme necessário */
+    height: 200px; /* Ajuste o tamanho conforme necessário */
+    border-radius: 50%;
+    background-color: #FFECB3; /* Cor laranja claro */
+    animation: fadeInOut 3s ease-in-out infinite;
+  }
+  
+  .middleCircle {
+    position: absolute;
+    width: 160px; /* Ajuste o tamanho conforme necessário */
+    height: 160px; /* Ajuste o tamanho conforme necessário */
+    border-radius: 50%;
+    background-color: #FFB74D; /* Cor laranja escuro */
+    animation: fadeInOut 2s ease-in-out infinite 1s;
+  }
+  
+  .innerCircle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120px; /* Ajuste o tamanho conforme necessário */
+    height: 120px; /* Ajuste o tamanho conforme necessário */
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: orange; /* Cor laranja */
+  }
+  
+  .iconText {
+    color: white; /* Cor do texto */
+    font-size: 16px; /* Ajuste o tamanho conforme necessário */
+    font-weight: bold;
+  }
+  @media (max-width: 768px) {
+    .wrapper {
+      display: none; /* Oculta o ícone no mobile */
+    }
+  }
