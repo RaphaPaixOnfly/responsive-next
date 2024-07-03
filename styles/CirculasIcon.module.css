@@ -58,6 +58,6 @@
   }
   @media (max-width: 768px) {
     .wrapper {
-      display: block; /* Oculta o ícone no mobile */
+      display: none; /* Oculta o ícone no mobile */
     }
   }
