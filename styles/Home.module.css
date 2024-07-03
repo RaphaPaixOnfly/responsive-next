@@ -108,9 +108,7 @@
     .iconItem p {
       color: #000000;
     }
-    .column2{
-      margin-left: 40px;
-    }
+    
   }
   
   @media (min-width: 768px) {
@@ -122,6 +120,9 @@
     }
     .iconItem{
       background-color: #00A6FC;
+    }
+    .column2{
+      margin-left: 40px;
     }
   }
   .iconItem {
