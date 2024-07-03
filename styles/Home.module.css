@@ -39,7 +39,6 @@
     margin-top: 100px; /* Margem superior */
     justify-content: center; /* Centralizar os itens */
     align-items: center;
-    margin-left: 40px;
   }
   
   .column2 .card {
@@ -109,7 +108,9 @@
     .iconItem p {
       color: #000000;
     }
-    
+    .column2{
+      margin-left: 40px;
+    }
   }
   
   @media (min-width: 768px) {
