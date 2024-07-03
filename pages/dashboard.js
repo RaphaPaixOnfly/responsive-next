@@ -39,6 +39,20 @@ const calculateCriteriaCounts = (data) => {
   return criteriaCounts;
 };
 
+const getMessage = (nome, geral) => {
+  if (geral < 40) {
+    return `${nome}, sua empresa precisa melhorar muito!`;
+  } else if (geral >= 40 && geral <= 69) {
+    return `${nome}, sua empresa está regular, com muitos pontos a melhorar`;
+  } else if (geral >= 70 && geral <= 99) {
+    return `${nome}, sua empresa está acelerando, continue assim!`;
+  } else if (geral === 100) {
+    return `${nome}, sua empresa está indo muito bem!`;
+  } else {
+    return nome;
+  }
+};
+
 export default function Dashboard() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -70,6 +84,9 @@ export default function Dashboard() {
 
   return (
     <div className={styles['dashboard-container']}>
+      <div>
+        <h3>{getMessage(data.nome, data.geral)}</h3>
+      </div>
       <div className={styles['mobile-controls']}>
         <button
           className={`${styles['control-button']} ${view === 'overview' ? styles.active : ''}`}
@@ -86,6 +103,7 @@ export default function Dashboard() {
       </div>
       <div className={styles['dashboard-content']}>
         <div className={styles['dashboard-ranking']} style={{ display: view === 'overview' || window.innerWidth >= 768 ? 'block' : 'none' }}>
+          {window.innerWidth >= 768 && <h4 className={styles['desktop-title']}>Visão Geral</h4>}
           <div className={styles['dashboard-row']}>
             <div className={styles['dashboard-column1']}>
               <div className={styles['chart-container']}>
@@ -151,6 +169,7 @@ export default function Dashboard() {
           </div>
         </div>
         <div className={styles['dashboard-fundamentos']} style={{ display: view === 'details' || window.innerWidth >= 768 ? 'block' : 'none' }}>
+          {window.innerWidth >= 768 && <h4 className={styles['desktop-title']}>Todos os Fundamentos</h4>}
           <div className={styles['dashboard-row2']}>
             <div className={styles['dashboard-column']}>
               <HorizontalBar percentage={data.notaOperacional} nota={data.operacional} topico="Atendimento" />

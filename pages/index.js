@@ -27,68 +27,46 @@ export default function Home() {
       {!iframeId ? (
         <main className={styles.main}>
           <div className={styles.column1}>
-          <div className={styles.imageContainer}>
-              <Image
-                src="/onfly-logo-recortada.png" // substitua pelo caminho da sua imagem
-                alt="Descrição da imagem"
-                width={150} // substitua pela largura desejada
-                height={40} // substitua pela altura desejada
-                className={styles.responsiveImage}
-              />
-            </div>
+            
             <h1 className={styles.title}>Diagnóstico de Gestão de Viagens Corporativas</h1>
             <p className={styles.subtitle}>Obtenha um diagnóstico personalizado da gestão de viagens da sua empresa de forma rápida e gratuita.</p>
             
             <div className={styles.iconStruct}>
               <div className={styles.iconItem}>
-                <FontAwesomeIcon icon={faCog} className={styles.icon}/>
+                <FontAwesomeIcon icon={faCog} className={styles.icon} />
                 <p>Atendimento</p>
               </div>
               <div className={styles.iconItem}>
-                <FontAwesomeIcon icon={faShieldAlt} className={styles.icon}/>
+                <FontAwesomeIcon icon={faShieldAlt} className={styles.icon} />
                 <p>Compliance e Políticas da Empresa</p>
               </div>
-              
               <div className={styles.iconItem}>
-                <FontAwesomeIcon icon={faDollarSign} className={styles.icon}/>
+                <FontAwesomeIcon icon={faDollarSign} className={styles.icon} />
                 <p>Controle de Custos</p>
               </div> 
             </div>
             <div className={styles.iconStruct}>
               <div className={styles.iconItem}>
-                <FontAwesomeIcon icon={faChartLine} className={styles.icon}/>
+                <FontAwesomeIcon icon={faChartLine} className={styles.icon} />
                 <p>Planejamento</p>
               </div>
               <div className={styles.iconItem}>
-                <FontAwesomeIcon icon={faSmile} className={styles.icon}/>
+                <FontAwesomeIcon icon={faSmile} className={styles.icon} />
                 <p>Satisfação do Viajante</p>
               </div>
               <div className={styles.iconItem}>
-                <FontAwesomeIcon icon={faLaptopCode} className={styles.icon}/>
+                <FontAwesomeIcon icon={faLaptopCode} className={styles.icon} />
                 <p>Tecnologia e Automação</p>
               </div> 
             </div>
           </div>
           
           <div className={styles.column2}>
-            
-          <div className={styles.column2}>
             <CircularIcon handleClick={handleRedirect} />
+            <div className={styles.column2}>
+              <button onClick={() => handleRedirect('iframe1')}>Começar</button>
+            </div>
           </div>
-            <div className={styles.column2} onClick={() => handleRedirect('iframe1')}>
-              <button>Começar</button>
-            </div>
-            {/*<div className={`${styles.card} ${styles['card-top']}`} onClick={() => handleRedirect('iframe1')}>
-              <h2>Diagnóstico do Viajante</h2>
-            </div>
-            <div className={`${styles.card} ${styles['card-top']}`} onClick={() => handleRedirect('iframe2')}>
-              <h2>Diagnóstico do Gestor</h2>
-            </div>
-            <div className={`${styles.card} ${styles['card-bottom']}`} onClick={() => handleRedirect('iframe3')}>
-              <h2>Disgnóstico do Financeiro</h2>
-            </div>*/}
-          </div>
-          
         </main>
       ) : (
         <div id="merlin-container" className={styles.iframeContainer}></div>
