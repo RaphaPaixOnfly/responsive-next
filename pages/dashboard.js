@@ -41,13 +41,13 @@ const calculateCriteriaCounts = (data) => {
 
 const getMessage = (nome, geral) => {
   if (geral < 40) {
-    return `${nome}, sua empresa precisa melhorar muito!`;
+    return `${nome}, a gestão de viagens da sua empresa está <span style="color: rgba(244, 67, 54, 0.2);">crítica!</span>`;
   } else if (geral >= 40 && geral <= 69) {
-    return `${nome}, sua empresa está regular, com muitos pontos a melhorar`;
+    return `${nome}, sua empresa está <span style="color: rgba(200, 187, 76, 1);">regular</span> na gestão de viagens...`;
   } else if (geral >= 70 && geral <= 99) {
-    return `${nome}, sua empresa está acelerando, continue assim!`;
+    return `${nome}, sua empresa está <span style="color: rgba(76, 175, 80, 0.2);">indo bem!</span>`;
   } else if (geral === 100) {
-    return `${nome}, sua empresa está indo muito bem!`;
+    return `${nome}, sua empresa está <span style="color: rgba(0, 134, 209, 1);">indo muito bem!</span>`;
   } else {
     return nome;
   }
@@ -85,7 +85,7 @@ export default function Dashboard() {
   return (
     <div className={styles['dashboard-container']}>
       <div>
-        <h3>{getMessage(data.nome, data.geral)}</h3>
+        <h3 dangerouslySetInnerHTML={{ __html: getMessage(data.nome, data.geral) }}></h3>
       </div>
       <div className={styles['mobile-controls']}>
         <button

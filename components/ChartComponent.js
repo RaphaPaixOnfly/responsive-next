@@ -25,7 +25,7 @@ ChartJS.register(
 );
 
 const getBackgroundColor = (value) => {
-  if (value === 100) return 'rgba(0, 0, 255, 0.2)'; // blue
+  if (value === 100) return 'rgba(0, 134, 209, 1)'; // blue
   if (value >= 70) return 'rgba(76, 175, 80, 0.2)'; // Green
   if (value >= 40 && value < 70) return 'rgba(255, 235, 59, 0.2)'; // Yellow
   if (value < 40) return 'rgba(244, 67, 54, 0.2)'; // Red
@@ -33,7 +33,7 @@ const getBackgroundColor = (value) => {
 };
 
 const getBorderColor = (value) => {
-  if (value === 100) return 'rgba(0, 0, 255, 1)'; // blue
+  if (value === 100) return 'rgba(0, 134, 209, 1)'; // blue
   if (value >= 70) return 'rgba(76, 175, 80, 1)'; // Green
   if (value >= 40 && value < 70) return 'rgba(255, 235, 59, 1)'; // Yellow
   if (value < 40) return 'rgba(244, 67, 54, 1)'; // Red
