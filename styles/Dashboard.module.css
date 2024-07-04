@@ -24,7 +24,7 @@
 }
 
 .dashboard-column2 {
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .dashboard-column h2 {
@@ -35,7 +35,7 @@
 }
 
 .dashboard-column p {
-  font-size: 13px;
+  font-size: 12px;
   color: black;
 }
 
@@ -213,7 +213,7 @@
 
   }
   .dashboard-text-container{
-    font-size: 14px;
+    font-size: 13px;
   }
   .dashboard-column {
     width: 100%;

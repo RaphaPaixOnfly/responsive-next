@@ -86,7 +86,7 @@
       flex-direction: column;
     }
     .column2 {
-      margin-top: 0; /* Remover margin-top no mobile */
+      margin-top: 10px; /* Remover margin-top no mobile */
     }
     .card {
       height: 40px; /* Altura ainda mais reduzida no mobile */
