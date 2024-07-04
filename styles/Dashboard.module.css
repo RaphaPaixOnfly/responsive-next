@@ -1,5 +1,6 @@
 .dashboard-container {
   padding: 25px;
+  padding-top: 15px;
   margin: 0 auto;
   margin-top: -10px;
   background-color: #f5f7fa; /* Azul muito claro */
@@ -267,6 +268,7 @@
     margin-left: 10px;
   }
 }
+
 @media (min-width: 768px) and (max-width: 1120px) {
   .dashboard-row, .dashboard-row2 {
       display: block;
@@ -286,4 +288,30 @@
   .desktop-title{
     margin-bottom: 10px;
   }
+}
+/* Adicione isso ao seu Dashboard.module.css */
+
+/* Centralizar o cabeçalho */
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #0086D1;
+  ;
+}
+
+/* Estilos adicionais para a imagem, se necessário */
+.imageContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.responsiveImage {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
 }

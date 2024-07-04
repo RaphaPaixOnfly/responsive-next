@@ -6,6 +6,7 @@ import HorizontalBar from '../components/HorizontalBar';
 import styles from '../styles/Dashboard.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faLock } from '@fortawesome/free-solid-svg-icons';
+import Image from 'next/image';
 
 const calculateCriteriaCounts = (data) => {
   const criteriaCounts = {
@@ -77,12 +78,24 @@ export default function Dashboard() {
   }
 
   if (!data) {
-    return <div>Loading...</div>;
+    return <div>Carregando resultados...</div>;
   }
 
   const criteriaCounts = calculateCriteriaCounts(data);
 
   return (
+   <>
+    <div className={styles['header']}>
+        <a href="https://www.onfly.com.br" target="_blank" rel="noopener noreferrer">
+          <Image
+            src="/Logo branca.png" // substitua pelo caminho da sua imagem
+            alt="Descrição da imagem"
+            width={120} // substitua pela largura desejada
+            height={30} // substitua pela altura desejada
+            className={styles.responsiveImage}
+          />
+        </a>
+    </div>
     <div className={styles['dashboard-container']}>
       <div className={styles['text-result']}>
         <h3 dangerouslySetInnerHTML={{ __html: getMessage(data.nome, data.geral) }}></h3>
@@ -204,5 +217,6 @@ export default function Dashboard() {
 
       </div>
     </div>
+    </> 
   );
 }
