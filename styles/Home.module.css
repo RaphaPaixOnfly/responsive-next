@@ -16,7 +16,7 @@
     margin-bottom: 0px;
   }
   .subtitle{
-    margin-bottom: 50px;
+    margin-bottom: 20px;
   }
   .main {
     display: flex;
@@ -86,7 +86,8 @@
       flex-direction: column;
     }
     .column2 {
-      margin-top: 10px; /* Remover margin-top no mobile */
+      margin-top: 0px; /* Remover margin-top no mobile */
+      align-self: center;
     }
     .card {
       height: 40px; /* Altura ainda mais reduzida no mobile */

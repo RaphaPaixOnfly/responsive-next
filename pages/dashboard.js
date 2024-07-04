@@ -84,7 +84,7 @@ export default function Dashboard() {
 
   return (
     <div className={styles['dashboard-container']}>
-      <div>
+      <div className={styles['text-result']}>
         <h3 dangerouslySetInnerHTML={{ __html: getMessage(data.nome, data.geral) }}></h3>
       </div>
       <div className={styles['mobile-controls']}>
