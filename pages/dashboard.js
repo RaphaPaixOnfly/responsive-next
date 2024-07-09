@@ -147,6 +147,7 @@ export default function Dashboard() {
 
   return (
    <>
+   <div className={styles.corpo}>
     <div className={styles.header}>
       <h1 className={styles.title}>Diagnóstico de Gestão de Viagens</h1>
       <a href="https://www.onfly.com.br" target="_blank" rel="noopener noreferrer" className={styles.imageLink}>
@@ -318,6 +319,7 @@ export default function Dashboard() {
             </div>
           </div>
         )}
+      </div>
       </div>
     </> 
   );
