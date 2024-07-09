@@ -267,9 +267,16 @@
   .dashboard-column1 {
     margin-left: 10px;
   }
+  .cases{
+    padding: 50px;
+    margin-left: 270px;
+  }
+  .dashboard-container{
+    margin-left: 270px;
+  }
 }
 
-@media (min-width: 768px) and (max-width: 1120px) {
+@media (min-width: 768px) and (max-width: 1300px) {
   .dashboard-row, .dashboard-row2 {
       display: block;
       padding: 0 10px 0 10px;
@@ -279,12 +286,12 @@
   }
 
 }
-@media (min-width: 1120px) {
+@media (min-width: 1300px) {
   .dashboard-row, .dashboard-row2 {
     display: flex;
 }
 }
-@media (max-width: 1120px) {
+@media (max-width: 1300px) {
   .desktop-title{
     margin-bottom: 10px;
   }
@@ -302,14 +309,32 @@
   left: 0;
   width: 100%;
   z-index: 1000; /* Garante que o header fique acima de outros elementos */
+  border-bottom: 1px solid #ccc;
 }
-
+.sidebar{
+  justify-content: space-between;
+  align-items: center;
+  padding: 120px 20px 0 20px;
+  background-color: #0086D1;
+  position: fixed; /* Torna o header fixo */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999; /* Garante que o header fique acima de outros elementos */
+  width: 270px;
+  height: 1200px;
+  color: white;
+}
+.prioritized{
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
 
 .title {
   color: white;
   margin: 0;
   padding-left: 40px;
-  font-size: 28px;
+  font-size: 24px;
   padding-bottom: 5px;
 }
 
@@ -339,6 +364,9 @@
   }
   .dashboard-container {
     padding-top: 100px; /* Ajuste para a altura do header em mobile */
+  }
+  .sidebar{
+    display: none;
   }
 }
 
