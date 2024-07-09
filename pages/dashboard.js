@@ -138,17 +138,19 @@ export default function Dashboard() {
 
   return (
    <>
-    <div className={styles['header']}>
-        <a href="https://www.onfly.com.br" target="_blank" rel="noopener noreferrer">
-          <Image
-            src="/Logo branca.png" // substitua pelo caminho da sua imagem
-            alt="Descrição da imagem"
-            width={120} // substitua pela largura desejada
-            height={30} // substitua pela altura desejada
-            className={styles.responsiveImage}
-          />
-        </a>
+    <div className={styles.header}>
+      <h1 className={styles.title}>Diagnóstico de Gestão de Viagens</h1>
+      <a href="https://www.onfly.com.br" target="_blank" rel="noopener noreferrer" className={styles.imageLink}>
+        <Image
+          src="/Logo branca.png" // substitua pelo caminho da sua imagem
+          alt="Descrição da imagem"
+          width={120} // substitua pela largura desejada
+          height={30} // substitua pela altura desejada
+          className={styles.responsiveImage}
+        />
+      </a>
     </div>
+
     <div className={styles['dashboard-container']}>
       <div className={styles['text-result']}>
         <h3 dangerouslySetInnerHTML={{ __html: getMessage(data.nome, data.geral) }}></h3>

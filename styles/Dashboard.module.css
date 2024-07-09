@@ -291,15 +291,27 @@
 }
 /* Adicione isso ao seu Dashboard.module.css */
 
-/* Centralizar o cabeçalho */
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  background-color: #0086D1;
+}
+
+.title {
+  color: white;
+  margin: 0;
+  padding-left: 40px;
+  font-size: 32px;
+  padding-bottom: 10px;
+}
+
+.imageLink {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background-color: #0086D1;
-  ;
+  padding-right: 55px;
 }
 
 /* Estilos adicionais para a imagem, se necessário */
@@ -307,6 +319,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* Estilos para versão mobile */
+@media (max-width: 768px) {
+  .header {
+    justify-content: center;
+  }
+  .imageLink{
+    padding-right: 0px;
+  }
+  .title {
+    display: none;
+  }
 }
 
 .responsiveImage {
