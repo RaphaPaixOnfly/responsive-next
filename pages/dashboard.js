@@ -7,6 +7,7 @@ import styles from '../styles/Dashboard.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faLock } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
+import { faCog, faLaptopCode, faDollarSign, faChartLine, faSmile, faShieldAlt } from '@fortawesome/free-solid-svg-icons';
 
 const calculateCriteriaCounts = (data) => {
   const criteriaCounts = {
@@ -82,6 +83,58 @@ export default function Dashboard() {
   }
 
   const criteriaCounts = calculateCriteriaCounts(data);
+  
+   // Encontre o tópico com a menor nota e os outros tópicos
+   const scores = [
+    { topic: 'Atendimento', score: data.notaOperacional },
+    { topic: 'Tecnologia e Automação', score: data.notaTecauto },
+    { topic: 'Controle de Custos', score: data.notaControlecustos },
+    { topic: 'Planejamento', score: data.notaPlanejamento },
+    { topic: 'Satisfação do Viajante', score: data.notaSatisfacaodoviajante },
+    { topic: 'Compliance e Políticas', score: data.notaCompliance }
+  ];
+
+  scores.sort((a, b) => a.score - b.score);
+
+  const lowestTopic = scores[0].topic;
+  const lowestScore = scores[0].score;
+  const otherTopics = scores.slice(1).map(item => item.topic);
+  
+  const caseData = {
+    'Atendimento': {
+      title: 'Case Atendimento',
+      description: 'Descrição do case de atendimento.',
+      image: '/path/to/atendimento.jpg', // Substitua pelo caminho real da imagem
+    },
+    'Tecnologia e Automação': {
+      title: 'Case Tecnologia e Automação',
+      description: 'Descrição do case de tecnologia e automação.',
+      image: '/path/to/tecauto.jpg',
+    },
+    'Controle de Custos': {
+      title: 'Case Controle de Custos',
+      description: 'Descrição do case de controle de custos.',
+      image: '/path/to/controlecustos.jpg',
+    },
+    'Planejamento': {
+      title: 'Case Planejamento',
+      description: 'Descrição do case de planejamento.',
+      image: '/path/to/planejamento.jpg',
+    },
+    'Satisfação do Viajante': {
+      title: 'Case Satisfação do Viajante',
+      description: 'Descrição do case de satisfação do viajante.',
+      image: '/path/to/satisfacao.jpg',
+    },
+    'Compliance e Políticas': {
+      title: 'Case Compliance e Políticas',
+      description: 'Descrição do case de compliance e políticas.',
+      image: '/path/to/compliance.jpg',
+    },
+  };
+  
+  const prioritizedCase = caseData[lowestTopic];
+
 
   return (
    <>
@@ -185,38 +238,59 @@ export default function Dashboard() {
           {window.innerWidth >= 768 && <h4 className={styles['desktop-title']}>Todos os Fundamentos</h4>}
           <div className={styles['dashboard-row2']}>
             <div className={styles['dashboard-column']}>
-              <HorizontalBar percentage={data.notaOperacional} nota={data.operacional} topico="Atendimento" />
-              <p>{data.respostaOperacional}</p>
+                <HorizontalBar percentage={data.notaOperacional} nota={data.operacional} topico={<><FontAwesomeIcon icon={faCog} className={styles.icon} /> Atendimento</>} />
+                 <p>{data.respostaOperacional}</p>
             </div>
             <div className={styles['dashboard-column']}>
-              <HorizontalBar percentage={data.notaCompliance} nota={data.compliance} topico="Compliance e Políticas da Empresa" />
-              <p>{data.respostaCompliance}</p>
-            </div>
-          </div>
-          <div className={styles['dashboard-row2']}>
-            <div className={styles['dashboard-column']}>
-              <HorizontalBar percentage={data.notaControlecustos} nota={data.controlecustos} topico="Controle de Custos" />
-              <p>{data.respostaCusto}</p>
-            </div>
-            <div className={styles['dashboard-column']}>
-              <HorizontalBar percentage={data.notaPlanejamento} nota={data.planejamento} topico="Planejamento" />
-              <p>{data.respostaPlanejamento}</p>
+                <HorizontalBar percentage={data.notaCompliance} nota={data.compliance} topico={<><FontAwesomeIcon icon={faShieldAlt} className={styles.icon} /> Compliance e Políticas</>} />
+                 <p>{data.respostaCompliance}</p>
             </div>
           </div>
           <div className={styles['dashboard-row2']}>
             <div className={styles['dashboard-column']}>
-              <HorizontalBar percentage={data.notaSatisfacaodoviajante} nota={data.satisfacaodoviajante} topico="Satisfação do Viajante" />
-              <p>{data.respostaSatisfacao}</p>
+                <HorizontalBar percentage={data.notaControlecustos} nota={data.controlecustos} topico={<><FontAwesomeIcon icon={faDollarSign} className={styles.icon} /> Controle de Custos</>} />
+                 <p>{data.respostaCusto}</p>
             </div>
             <div className={styles['dashboard-column']}>
-              <HorizontalBar percentage={data.notaTecauto} nota={data.tecauto} topico="Tecnologia e Automação" />
-              <p>{data.respostaTecauto}</p>
+                <HorizontalBar percentage={data.notaPlanejamento} nota={data.planejamento} topico={<><FontAwesomeIcon icon={faChartLine} className={styles.icon} /> Planejamento</>} />
+                 <p>{data.respostaPlanejamento}</p>
+            </div>
+          </div>
+          <div className={styles['dashboard-row2']}>
+            <div className={styles['dashboard-column']}>
+                <HorizontalBar percentage={data.notaSatisfacaodoviajante} nota={data.satisfacaodoviajante} topico={<><FontAwesomeIcon icon={faSmile} className={styles.icon} /> Satisfação do Viajante</>}/>
+                 <p>{data.respostaSatisfacao}</p>
+            </div>
+            <div className={styles['dashboard-column']}>
+                <HorizontalBar percentage={data.notaTecauto} nota={data.tecauto} topico={<><FontAwesomeIcon icon={faLaptopCode} className={styles.icon} /> Tecnologia e Automação</>} />
+                 <p>{data.respostaTecauto}</p>
             </div>
           </div>
         </div>
 
       </div>
+      
+
     </div>
+    <div className={styles['cases']}>
+        {prioritizedCase && (
+          <div className={styles['case-item']}>
+            <div className={styles['case-column']}>
+              <h4>{prioritizedCase.title}</h4>
+              <p>{prioritizedCase.description}</p>
+            </div>
+            <div className={styles['case-column']}>
+              <Image
+                src={prioritizedCase.image}
+                alt={prioritizedCase.title}
+                width={200} // substitua pela largura desejada
+                height={200} // substitua pela altura desejada
+                className={styles.responsiveImage}
+              />
+            </div>
+          </div>
+        )}
+      </div>
     </> 
   );
 }

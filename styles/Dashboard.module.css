@@ -315,3 +315,30 @@
   max-width: 100%;
   max-height: 100%;
 }
+.case-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.case-column {
+  flex: 1;
+  padding: 10px;
+}
+
+.case-column h4 {
+  margin-bottom: 10px;
+}
+
+.case-column p {
+  margin-bottom: 10px;
+}
+
+.responsiveImage {
+  max-width: 100%;
+  height: auto;
+}
+.cases{
+  width: 100%;
+  background-color: white;
+}
