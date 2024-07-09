@@ -1,6 +1,6 @@
 .dashboard-container {
   padding: 25px;
-  padding-top: 15px;
+  padding-top: 120px;
   margin: 0 auto;
   margin-top: -10px;
   background-color: #f5f7fa; /* Azul muito claro */
@@ -297,14 +297,20 @@
   align-items: center;
   padding: 20px 0;
   background-color: #0086D1;
+  position: fixed; /* Torna o header fixo */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Garante que o header fique acima de outros elementos */
 }
+
 
 .title {
   color: white;
   margin: 0;
   padding-left: 40px;
-  font-size: 32px;
-  padding-bottom: 10px;
+  font-size: 28px;
+  padding-bottom: 5px;
 }
 
 .imageLink {
@@ -321,18 +327,21 @@
   align-items: center;
 }
 
-/* Estilos para versão mobile */
 @media (max-width: 768px) {
   .header {
     justify-content: center;
   }
-  .imageLink{
-    padding-right: 0px;
+  .imageLink {
+    padding-right: 0;
   }
   .title {
     display: none;
   }
+  .dashboard-container {
+    padding-top: 100px; /* Ajuste para a altura do header em mobile */
+  }
 }
+
 
 .responsiveImage {
   width: auto;

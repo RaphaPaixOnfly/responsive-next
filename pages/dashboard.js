@@ -150,7 +150,10 @@ export default function Dashboard() {
         />
       </a>
     </div>
+    
+    
 
+    
     <div className={styles['dashboard-container']}>
       <div className={styles['text-result']}>
         <h3 dangerouslySetInnerHTML={{ __html: getMessage(data.nome, data.geral) }}></h3>
