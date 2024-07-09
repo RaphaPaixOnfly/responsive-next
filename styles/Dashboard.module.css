@@ -1,6 +1,6 @@
 .dashboard-container {
   padding: 25px;
-  padding-top: 120px;
+  padding-top: 100px;
   margin: 0 auto;
   margin-top: -10px;
   background-color: #f5f7fa; /* Azul muito claro */
@@ -302,7 +302,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  padding: 15px 0;
   background-color: #0086D1;
   position: fixed; /* Torna o header fixo */
   top: 0;
@@ -324,6 +324,19 @@
   width: 270px;
   height: 1200px;
   color: white;
+}
+.otherTopics {
+  margin-top: 1rem;
+}
+
+.topicItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Ajuste a distância entre o ícone e o texto, se necessário */
+}
+
+.icon {
+  font-size: 1.2rem; /* Ajuste o tamanho do ícone, se necessário */
 }
 .prioritized{
   padding-bottom: 20px;

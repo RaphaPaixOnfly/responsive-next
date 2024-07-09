@@ -135,6 +135,15 @@ export default function Dashboard() {
   
   const prioritizedCase = caseData[lowestTopic];
 
+  const topicIcons = {
+    'Atendimento': faCog,
+    'Tecnologia e Automação': faLaptopCode,
+    'Controle de Custos': faDollarSign,
+    'Planejamento': faChartLine,
+    'Satisfação do Viajante': faSmile,
+    'Compliance e Políticas': faShieldAlt
+  };
+  
 
   return (
    <>
@@ -150,18 +159,21 @@ export default function Dashboard() {
         />
       </a>
     </div>
-      <div className={styles['sidebar']}>
-         <h3>Fundamento priorizado: </h3>
-         <p className={styles['prioritized']}>{lowestTopic}</p>
-         <div className={styles['other-topics']}>
-           <h4>Outros Tópicos:</h4>
-           {otherTopics.map((topic, index) => (
-             <div key={index} className={styles['topic-item']}>
-               <p>{topic}</p>
-             </div>
-           ))}
-         </div>
-       </div>
+    <div className={styles.sidebar}>
+        <h3>Fundamento priorizado: </h3>
+        <p className={styles.prioritized}>
+          <FontAwesomeIcon icon={topicIcons[lowestTopic]} className={styles.icon} /> {lowestTopic}
+        </p>
+        <div className={styles.otherTopics}>
+          <h4>Outros Tópicos:</h4>
+          {otherTopics.map((topic, index) => (
+            <div key={index} className={styles.topicItem}>
+              <FontAwesomeIcon icon={topicIcons[topic]} className={styles.icon} />
+              <p>{topic}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     
 
     
