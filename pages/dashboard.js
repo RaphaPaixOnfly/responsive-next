@@ -103,41 +103,42 @@ export default function Dashboard() {
   const caseData = {
     'Atendimento': {
       title: `${data.nome}, você deve priorizar Atendimento`,
-      description: 'Descrição do case de atendimento.',
+      description: 'Descubra como a Azos melhorou a experiência dos colaboradores com a Onfly, proporcionando um atendimento ao cliente excepcional e personalizado.',
       image: '/path/to/atendimento.jpg', // Substitua pelo caminho real da imagem
       link: 'https://www.onfly.com.br/case-de-sucesso-onfly-azos-seguros/',
     },
     'Tecnologia e Automação': {
       title: `${data.nome}, você deve priorizar Tecnologia e Automação`,
-      description: 'Descrição do case de tecnologia e automação.',
+      description: 'Veja como a Cartão de Todos implementou soluções de tecnologia e automação com a Onfly para otimizar processos e reduzir custos.',
       image: '/path/to/tecauto.jpg',
       link: 'https://www.onfly.com.br/case-cartao-de-todos/',
     },
     'Controle de Custos': {
       title: `${data.nome}, você deve priorizar Controle de Custos`,
-      description: 'Descrição do case de controle de custos.',
+      description: 'Saiba como a Cartão de Todos utilizou as ferramentas da Onfly para monitorar e controlar despesas de forma eficiente.',
       image: '/path/to/controlecustos.jpg',
       link: 'https://www.onfly.com.br/case-cartao-de-todos/',
     },
     'Planejamento': {
       title: `${data.nome}, você deve priorizar Planejamento`,
-      description: 'Descrição do case de planejamento.',
+      description: 'Descubra como a Rofe Distribuidora melhorou seu planejamento estratégico com as soluções da Onfly, garantindo viagens corporativas mais organizadas e econômicas.',
       image: '/path/to/planejamento.jpg',
       link: 'https://www.onfly.com.br/case-rofe-distribuidora/',
     },
     'Satisfação do Viajante': {
       title: `${data.nome}, você deve priorizar Satisfação do Viajante`,
-      description: 'Descrição do case de satisfação do viajante.',
+      description: 'Descubra como a Azos Seguros melhorou a satisfação de seus viajantes corporativos utilizando os serviços da Onfly.',
       image: '/path/to/satisfacao.jpg',
       link: 'https://www.onfly.com.br/case-de-sucesso-onfly-azos-seguros/',
     },
     'Compliance e Políticas': {
       title: `${data.nome}, você deve priorizar Compliance e Políticas`,
       description: 'Conheça o guia de política de viagens corporativas da Onfly, onde você obterá um passo a passo para começar a estruturar a política de viagens da sua empresa.',
-      image: '/onfly-logo.png',
+      image: '/imagemcompliance.png',
       link: 'https://www.onfly.com.br/blog/criar-a-politica-de-viagens-guia-definitivo/',
     },
   };
+  
   
   
   const prioritizedCase = caseData[lowestTopic];
@@ -322,8 +323,8 @@ export default function Dashboard() {
               <Image
                 src={prioritizedCase.image}
                 alt="Descrição da imagem"
-                width={200} // substitua pela largura desejada
-                height={200} // substitua pela altura desejada
+                width={300} // substitua pela largura desejada
+                height={300} // substitua pela altura desejada
                 className={styles.responsiveImage}
               />
             </div>
