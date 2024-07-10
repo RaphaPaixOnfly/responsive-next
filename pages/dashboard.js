@@ -43,13 +43,13 @@ const calculateCriteriaCounts = (data) => {
 
 const getMessage = (nome, geral) => {
   if (geral < 40) {
-    return `${nome}, a gestão de viagens da sua empresa está <span style="color: rgba(244, 67, 54, 0.2);">crítica!</span>`;
+    return `${nome}, a gestão de viagens da sua empresa está <span style="color: rgb(244, 67, 54);">crítica!</span>`;
   } else if (geral >= 40 && geral <= 69) {
-    return `${nome}, sua empresa está <span style="color: rgba(200, 187, 76, 1);">regular</span> na gestão de viagens...`;
+    return `${nome}, sua empresa está <span style="color: #ffaa00;">regular</span> na gestão de viagens...`;
   } else if (geral >= 70 && geral <= 99) {
-    return `${nome}, sua empresa está <span style="color: rgba(76, 175, 80, 0.2);">indo bem!</span>`;
+    return `${nome}, sua empresa está <span style="color: rgb(76, 175, 80);">indo bem!</span>`;
   } else if (geral === 100) {
-    return `${nome}, sua empresa está <span style="color: rgba(0, 134, 209, 1);">indo muito bem!</span>`;
+    return `${nome}, sua empresa está <span style="color: rgb(0, 134, 209);">indo muito bem!</span>`;
   } else {
     return nome;
   }
@@ -102,36 +102,43 @@ export default function Dashboard() {
   
   const caseData = {
     'Atendimento': {
-      title: 'Case Atendimento',
+      title: `${data.nome}, você deve priorizar Atendimento`,
       description: 'Descrição do case de atendimento.',
       image: '/path/to/atendimento.jpg', // Substitua pelo caminho real da imagem
+      link: 'https://www.onfly.com.br/case-de-sucesso-onfly-azos-seguros/',
     },
     'Tecnologia e Automação': {
-      title: 'Case Tecnologia e Automação',
+      title: `${data.nome}, você deve priorizar Tecnologia e Automação`,
       description: 'Descrição do case de tecnologia e automação.',
       image: '/path/to/tecauto.jpg',
+      link: 'https://www.onfly.com.br/case-cartao-de-todos/',
     },
     'Controle de Custos': {
-      title: 'Case Controle de Custos',
+      title: `${data.nome}, você deve priorizar Controle de Custos`,
       description: 'Descrição do case de controle de custos.',
       image: '/path/to/controlecustos.jpg',
+      link: 'https://www.onfly.com.br/case-cartao-de-todos/',
     },
     'Planejamento': {
-      title: 'Case Planejamento',
+      title: `${data.nome}, você deve priorizar Planejamento`,
       description: 'Descrição do case de planejamento.',
       image: '/path/to/planejamento.jpg',
+      link: 'https://www.onfly.com.br/case-rofe-distribuidora/',
     },
     'Satisfação do Viajante': {
-      title: 'Case Satisfação do Viajante',
+      title: `${data.nome}, você deve priorizar Satisfação do Viajante`,
       description: 'Descrição do case de satisfação do viajante.',
       image: '/path/to/satisfacao.jpg',
+      link: 'https://www.onfly.com.br/case-de-sucesso-onfly-azos-seguros/',
     },
     'Compliance e Políticas': {
-      title: 'Case Compliance e Políticas',
-      description: 'Descrição do case de compliance e políticas.',
-      image: '/path/to/compliance.jpg',
+      title: `${data.nome}, você deve priorizar Compliance e Políticas`,
+      description: 'Conheça o guia de política de viagens corporativas da Onfly, onde você obterá um passo a passo para começar a estruturar a política de viagens da sua empresa.',
+      image: '/onfly-logo.png',
+      link: 'https://www.onfly.com.br/blog/criar-a-politica-de-viagens-guia-definitivo/',
     },
   };
+  
   
   const prioritizedCase = caseData[lowestTopic];
 
@@ -305,13 +312,16 @@ export default function Dashboard() {
         {prioritizedCase && (
           <div className={styles['case-item']}>
             <div className={styles['case-column']}>
-              <h4>{prioritizedCase.title}</h4>
+              <h2>{prioritizedCase.title}</h2>
               <p>{prioritizedCase.description}</p>
+              <a href={prioritizedCase.link} target="_blank" rel="noopener noreferrer">
+                <button className={styles['case-button']}>Acessar</button>
+              </a>
             </div>
             <div className={styles['case-column']}>
               <Image
                 src={prioritizedCase.image}
-                alt={prioritizedCase.title}
+                alt="Descrição da imagem"
                 width={200} // substitua pela largura desejada
                 height={200} // substitua pela altura desejada
                 className={styles.responsiveImage}
@@ -320,6 +330,18 @@ export default function Dashboard() {
           </div>
         )}
       </div>
+      
+      <div className={styles['rankingmercado']}>
+
+      </div>
+
+      <div className={styles['oqueeonfly']}>
+
+      </div>
+
+
+
+
       </div>
     </> 
   );

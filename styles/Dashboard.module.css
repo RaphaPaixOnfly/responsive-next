@@ -35,7 +35,6 @@
 .dashboard-column h2 {
   text-align: center;
   font-size: 16px;
-  color: black;
   margin-top: 40px;
 }
 
@@ -153,7 +152,7 @@
 }
 
 .developmentIcon {
-  color: #f4ec12;
+  color: #ffaa00;
   margin-right: 8px;
 }
 
@@ -172,7 +171,7 @@
 }
 
 .development {
-  color: #c8bb4c;
+  color: #ffaa00;
 }
 
 .accelerating {
@@ -210,6 +209,14 @@
 }
 
 @media (max-width: 768px) {
+  .case-column h2 {
+    font-size: 30px;
+  }
+  .case-column{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+  }
   .dashboard-row, .dashboard-row2 {
     display: flex;
     flex-direction: row;
@@ -255,6 +262,9 @@
   }
 }
 @media (min-width: 768px) {
+  .case-column h2{
+    font-size: 40px;
+  }
   .dashboard-row, .dashboard-row2 {
     flex-direction: row;
     overflow: hidden;
@@ -303,7 +313,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 15px 0;
-  background-color: #0086D1;
+  background: #0F3163;
   position: fixed; /* Torna o header fixo */
   top: 0;
   left: 0;
@@ -313,9 +323,10 @@
 }
 .sidebar{
   justify-content: space-between;
+  border-right: 1px solid #ccc;
   align-items: center;
   padding: 120px 20px 0 20px;
-  background-color: #0086D1;
+  background: #0F3163;
   position: fixed; /* Torna o header fixo */
   top: 0;
   left: 0;
@@ -335,10 +346,17 @@
   display: flex;
   align-items: center;
   gap: 0.5rem; /* Ajuste a distância entre o ícone e o texto, se necessário */
+
 }
 
 .icon {
   font-size: 1.2rem; /* Ajuste o tamanho do ícone, se necessário */
+}
+.sidebar .icon {
+  font-size: 1.2rem; /* Ajuste o tamanho do ícone, se necessário */
+  color: #5CC4FD; /* Define a cor dos ícones */
+  width: 20px; /* Define a largura fixa */
+  height: 20px; /* Define a altura fixa */
 }
 .prioritized{
   padding-bottom: 20px;
@@ -400,9 +418,19 @@
 
 .case-column {
   flex: 1;
-  padding: 10px;
+  padding: 30px;
 }
 
+.case-column p{
+  color: white;
+}
+
+
+@media (max-width: 768px) {
+  .case-item {
+    display: block;
+  }
+}  
 .case-column h4 {
   margin-bottom: 10px;
 }
@@ -410,15 +438,29 @@
 .case-column p {
   margin-bottom: 10px;
 }
-
+.case-column h2{
+  background: linear-gradient(to right, white, #267FFA);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 .responsiveImage {
   max-width: 100%;
   height: auto;
 }
 .cases{
   width: 100%;
-  background-color: white;
+  background: #0F3163;
 }
 .corpo{
   overflow-x: hidden;
 }
+.case-button{
+  background-color: #ffaa00;
+  color: white;
+  padding: 10px 40px 10px 40px;
+  border-radius: 20px;
+  border-color: #ffaa00;
+  margin-top: 30px;
+  font-size: 18px;
+}
+ 

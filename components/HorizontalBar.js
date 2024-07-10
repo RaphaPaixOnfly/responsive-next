@@ -4,7 +4,7 @@ const HorizontalBar = ({ percentage, nota, topico }) => {
   const getBackgroundColor = (value) => {
     if (value == 100) return 'rgba(0, 134, 209, 1)'; // Blue
     if (value >= 70) return '#4caf50'; // Green
-    if (value >= 40 && value < 70) return '#ffeb3b'; // Yellow
+    if (value >= 40 && value < 70) return '#ffaa00'; // Yellow
     if (value < 40) return '#f44336'; // Red
     return 'rgba(0, 134, 209, 1)'; // Light Blue for 100%
   };
