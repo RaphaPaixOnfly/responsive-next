@@ -104,7 +104,7 @@ export default function Dashboard() {
     'Atendimento': {
       title: `${data.nome}, você deve priorizar Atendimento`,
       description: 'Descubra como a Azos melhorou a experiência dos colaboradores com a Onfly, proporcionando um atendimento ao cliente excepcional e personalizado.',
-      image: '/path/to/atendimento.jpg', // Substitua pelo caminho real da imagem
+      image: '/imagematendimento.png', // Substitua pelo caminho real da imagem
       link: 'https://www.onfly.com.br/case-de-sucesso-onfly-azos-seguros/',
     },
     'Tecnologia e Automação': {
@@ -128,7 +128,7 @@ export default function Dashboard() {
     'Satisfação do Viajante': {
       title: `${data.nome}, você deve priorizar Satisfação do Viajante`,
       description: 'Descubra como a Azos Seguros melhorou a satisfação de seus viajantes corporativos utilizando os serviços da Onfly.',
-      image: '/path/to/satisfacao.jpg',
+      image: '/imagematendimento.png',
       link: 'https://www.onfly.com.br/case-de-sucesso-onfly-azos-seguros/',
     },
     'Compliance e Políticas': {
@@ -319,14 +319,14 @@ export default function Dashboard() {
                 <button className={styles['case-button']}>Acessar</button>
               </a>
             </div>
-            <div className={styles['case-column']}>
-              <Image
-                src={prioritizedCase.image}
-                alt="Descrição da imagem"
-                width={300} // substitua pela largura desejada
-                height={300} // substitua pela altura desejada
-                className={styles.responsiveImage}
-              />
+            <div className={styles['case-column2']}>
+                <Image
+                  src={prioritizedCase.image}
+                  alt="Descrição da imagem"
+                  width={300} // substitua pela largura desejada
+                  height={300} // substitua pela altura desejada
+                  className={styles.responsiveImage}
+                />
             </div>
           </div>
         )}
@@ -337,8 +337,47 @@ export default function Dashboard() {
       </div>
 
       <div className={styles['oqueeonfly']}>
+  <div className={styles['oqueeonfly-parte1']}>
+    <h2>O que é a <span className={styles['highlight']}>Onfly?</span></h2>
+    <p>A plataforma nº1 da América Latina na gestão de viagens a trabalho, com foco em transparência, economia e na experiência descomplicada do viajante.</p>
+  </div>
+  <div className={styles['oqueeonfly-parte2']}>
+    <div className={styles['oqueeonfly-column']}>
+      <Image
+        src="/viagemtrabalho.png"
+        alt="Descrição da imagem"
+        width={300} // substitua pela largura desejada
+        height={300} // substitua pela altura desejada
+        className={styles.responsiveImage}
+      />
+      <h4>Suas viagens a trabalho podem ser mais simples</h4>
+      <p>Reserve tudo em poucos cliques, sem precisar fazer nenhuma solicitação externa: é você quem decide o melhor horário para as suas viagens.</p>
+    </div>
+    <div className={styles['oqueeonfly-column']}>
+      <Image
+        src="/eficienciaqualidade.png"
+        alt="Descrição da imagem"
+        width={300} // substitua pela largura desejada
+        height={300} // substitua pela altura desejada
+        className={styles.responsiveImage}
+      />
+      <h4>Eficiência e qualidade em viagens corporativas</h4>
+      <p>Otimize o gerenciamento de viagens com a Onfly: acompanhe em tempo real, controle créditos e gerencie políticas e bilhetes não voados. Diminua a quantidade de processos e foque no essencial.</p>
+    </div>
+    <div className={styles['oqueeonfly-column']}>
+      <Image
+        src="/transparencia.png"
+        alt="Descrição da imagem"
+        width={300} // substitua pela largura desejada
+        height={300} // substitua pela altura desejada
+        className={styles.responsiveImage}
+      />
+      <h4>Transparência Financeira é com a líder da América Latina</h4>
+      <p>Aprimore a gestão financeira, visualizando relatórios em tempo real, análises precisas e integrações com ERPs. Na Onfly, sua gestão aumenta o ROI e toma decisões mais estratégicas.</p>
+    </div>
+  </div>
+</div>
 
-      </div>
 
 
 

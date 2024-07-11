@@ -23,6 +23,7 @@
 
 }
 
+
 .dashboard-column1 {
   min-width: 200px;
   padding: 20px;
@@ -218,6 +219,9 @@
     align-items: left;
 
   }
+  .case-column2{
+    flex-direction: row;
+  }
   .dashboard-row, .dashboard-row2 {
     display: flex;
     flex-direction: row;
@@ -263,8 +267,18 @@
   }
 }
 @media (min-width: 768px) {
+  .oqueeonfly-column{
+    padding: 10px;
+  }
   .case-column h2{
-    font-size: 40px;
+    font-size: 34px;
+  }
+  .case-column2{
+    padding: 120px;
+    max-width: 400px;
+  }
+  .dashboard-column1{
+    max-width: 300px;
   }
   .dashboard-row, .dashboard-row2 {
     flex-direction: row;
@@ -279,23 +293,27 @@
     margin-left: 10px;
   }
   .cases{
-    padding: 50px;
+    padding: 50px 90px;
     margin-left: 270px;
   }
   .rankingmercado{
-    padding: 50px;
+
+    padding: 50px 90px;
     margin-left: 270px;
   }
   .oqueeonfly{
-    padding: 50px;
+    padding: 50px 90px;
     margin-left: 270px;
   }
   .dashboard-container{
     margin-left: 270px;
+    padding: 10px;
+    padding-top: 90px;
+    padding-bottom: 30px;
   }
 }
 
-@media (min-width: 768px) and (max-width: 1300px) {
+@media (min-width: 768px) and (max-width: 1260px) {
   .dashboard-row, .dashboard-row2 {
       display: block;
       padding: 0 10px 0 10px;
@@ -305,12 +323,12 @@
   }
 
 }
-@media (min-width: 1300px) {
+@media (min-width: 1260px) {
   .dashboard-row, .dashboard-row2 {
     display: flex;
 }
 }
-@media (max-width: 1300px) {
+@media (max-width: 1260px) {
   .desktop-title{
     margin-bottom: 10px;
   }
@@ -413,10 +431,12 @@
     display: none;
   }
 }
-
+.corpo{
+  background-color: #f5f7fa;
+}
 
 .responsiveImage {
-  width: auto;
+  width: 100%;
   height: auto;
   max-width: 100%;
   max-height: 100%;
@@ -430,9 +450,13 @@
 
 .case-column {
   flex: 1;
-  padding: 30px;
+  padding: 25px;
 }
-
+.case-column2{
+  display: flex;
+  flex: 1;
+  padding: 25px;
+}
 .case-column p{
   color: white;
 }
@@ -458,19 +482,18 @@
 .responsiveImage {
   max-width: 100%;
   height: auto;
+  align-self: center;
 }
 .cases{
-  width: 100%;
+
   background: #0F3163;
 }
 .rankingmercado{
+  display: none;
   width: 100%;
   background: #0F3163;
 }
-.oqueeonfly{
-  width: 100%;
-  background: #0F3163;
-}
+
 .corpo{
   overflow-x: hidden;
 }
@@ -483,4 +506,89 @@
   margin-top: 30px;
   font-size: 18px;
 }
- 
+/* CSS para a versão desktop */
+.oqueeonfly {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #f5f7fa;
+  padding: 75px 115px;
+}
+
+.oqueeonfly-parte1 {
+  margin-bottom: 20px;
+
+}
+
+.oqueeonfly-parte1 h2 {
+  margin-bottom: 10px;
+  font-size: 34px; /* Aumenta o tamanho da fonte do título */
+}
+
+.highlight {
+  color: #007BFF; /* Altere para a cor desejada */
+}
+
+.oqueeonfly-parte1 p {
+  margin-bottom: 20px;
+  padding-left: 120px;
+  padding-right: 120px;
+}
+
+.oqueeonfly-parte2 {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.oqueeonfly-column {
+  flex: 1;
+
+  max-width: 33%;
+  text-align: left; /* Alinha os textos à esquerda */
+}
+
+.oqueeonfly-column h4 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
+.oqueeonfly-column p {
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+/* CSS para a versão mobile */
+@media (max-width: 768px) {
+  .oqueeonfly-parte1 p {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .oqueeonfly {
+    text-align: left;
+    padding: 25px;
+    padding-top: 20px;
+  }
+  .cases{
+    padding-bottom: 5px;
+  }
+  .oqueeonfly-parte1 {
+    margin-bottom: 20px;
+
+  }
+
+  .oqueeonfly-parte2 {
+    display: block;
+  }
+
+  .oqueeonfly-column {
+    margin-bottom: 20px;
+    max-width: 100%;
+  }
+}
+.highlight{
+  color: #009EFB;
+  ;
+}
