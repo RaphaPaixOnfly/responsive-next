@@ -109,20 +109,20 @@ export default function Dashboard() {
     },
     'Tecnologia e Automação': {
       title: `${data.nome}, você deve priorizar Tecnologia e Automação`,
-      description: 'Veja como a Cartão de Todos implementou soluções de tecnologia e automação com a Onfly para otimizar processos e reduzir custos.',
-      image: '/path/to/tecauto.jpg',
+      description: 'Veja como a Cartão de Todos implementou soluções de tecnologia e automação com a Onfly para otimizar processos da gestão de viagens.',
+      image: '/onfly-integracoes.png',
       link: 'https://www.onfly.com.br/case-cartao-de-todos/',
     },
     'Controle de Custos': {
       title: `${data.nome}, você deve priorizar Controle de Custos`,
       description: 'Saiba como a Cartão de Todos utilizou as ferramentas da Onfly para monitorar e controlar despesas de forma eficiente.',
-      image: '/path/to/controlecustos.jpg',
+      image: '/imagemcustos2.png',
       link: 'https://www.onfly.com.br/case-cartao-de-todos/',
     },
     'Planejamento': {
       title: `${data.nome}, você deve priorizar Planejamento`,
       description: 'Descubra como a Rofe Distribuidora melhorou seu planejamento estratégico com as soluções da Onfly, garantindo viagens corporativas mais organizadas e econômicas.',
-      image: '/path/to/planejamento.jpg',
+      image: '/imagemcustos2.png.jpg',
       link: 'https://www.onfly.com.br/case-rofe-distribuidora/',
     },
     'Satisfação do Viajante': {
