@@ -207,6 +207,25 @@
   cursor: pointer;
 }
 
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0F3163;
+  padding: 30px;
+}
+
+.socialIcon {
+  color: white;
+  font-size: 16px;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.socialIcon:hover {
+  color: #aaa; /* Ajuste a cor do hover conforme necessário */
+}
+
 .control-button.active {
   border-bottom: 2px solid blue; /* Cor azul quando ativo */
 }
@@ -217,6 +236,7 @@
 @media (max-width: 768px) {
   .rankingmercado{
     display: block;
+    margin-top: -25px;
   }
   .rankingmercado-parte0{
     width: 100%;
@@ -285,6 +305,9 @@
   }
 }
 @media (min-width: 768px) {
+  .footer{
+    margin-left: 270px;
+  }
   .rankingmercado{
     display: flex;
   }

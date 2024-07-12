@@ -7,6 +7,7 @@ import styles from '../styles/Dashboard.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faLock } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
+import { faFacebook, faInstagram, faYoutube, faLinkedin, faTiktok } from '@fortawesome/free-brands-svg-icons';
 import { faCog, faGift, faLaptopCode, faDollarSign, faChartLine, faSmile, faShieldAlt } from '@fortawesome/free-solid-svg-icons';
 
 const calculateCriteriaCounts = (data) => {
@@ -116,13 +117,13 @@ export default function Dashboard() {
     'Controle de Custos': {
       title: `${data.nome}, você deve priorizar Controle de Custos`,
       description: 'Saiba como a Cartão de Todos utilizou as ferramentas da Onfly para monitorar e controlar despesas de forma eficiente.',
-      image: '/imagemcustos2.png',
+      image: '/imagemscustos2.png',
       link: 'https://www.onfly.com.br/case-cartao-de-todos/',
     },
     'Planejamento': {
       title: `${data.nome}, você deve priorizar Planejamento`,
       description: 'Descubra como a Rofe Distribuidora melhorou seu planejamento estratégico com as soluções da Onfly, garantindo viagens corporativas mais organizadas e econômicas.',
-      image: '/imagemcustos2.png.jpg',
+      image: '/imagemscustos2.png',
       link: 'https://www.onfly.com.br/case-rofe-distribuidora/',
     },
     'Satisfação do Viajante': {
@@ -359,19 +360,19 @@ export default function Dashboard() {
           <div className={styles['rankingmercado-parte1']}>
             <div className={styles['rankingmercado-row']}>
             <a href="https://www.seulink.com" className={styles['button-ranking-slide']} target="_blank" rel="noopener noreferrer">
-              Fale com Especialista<FontAwesomeIcon icon={faLock} className={styles['icon']} />
+              Ranking Geral<FontAwesomeIcon icon={faLock} className={styles['icon']} />
             </a>
               
             </div>
             <div className={styles['rankingmercado-row']}>
               <a href="https://www.seulink.com" className={styles['button-ranking-slide']} target="_blank" rel="noopener noreferrer">
-                Fale com Especialista<FontAwesomeIcon icon={faLock} className={styles['icon']} />
+                Mesmo Porte<FontAwesomeIcon icon={faLock} className={styles['icon']} />
               </a>
               
             </div>
             <div className={styles['rankingmercado-row']}>
               <a href="https://www.seulink.com" className={styles['button-ranking-slide']} target="_blank" rel="noopener noreferrer">
-                Fale com Especialista<FontAwesomeIcon icon={faLock} className={styles['icon']} />
+                Mesma Indústria<FontAwesomeIcon icon={faLock} className={styles['icon']} />
               </a>
              
             </div>
@@ -423,6 +424,25 @@ export default function Dashboard() {
           </div>
         </div>
       </div>
+
+      <div className={styles.footer}>
+        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
+          <FontAwesomeIcon icon={faFacebook} />
+        </a>
+        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
+          <FontAwesomeIcon icon={faInstagram} />
+        </a>
+        <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
+          <FontAwesomeIcon icon={faYoutube} />
+        </a>
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
+          <FontAwesomeIcon icon={faLinkedin} />
+        </a>
+        <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
+          <FontAwesomeIcon icon={faTiktok} />
+        </a>
+      </div>
+
 
 
 
