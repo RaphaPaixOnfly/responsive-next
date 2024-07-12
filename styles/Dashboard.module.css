@@ -42,6 +42,7 @@
 .dashboard-column p {
   font-size: 12px;
   color: black;
+  margin-bottom: 0px;
 }
 
 .chart-container {
@@ -137,6 +138,7 @@
   margin-left: -5px;
   margin-bottom: 10px;
   font-size: 15px;
+  margin-top: 10px;
 }
 .text-with-icon,
 .text-with-lock {
@@ -208,8 +210,24 @@
 .control-button.active {
   border-bottom: 2px solid blue; /* Cor azul quando ativo */
 }
-
+.dashboard-text-container{
+  margin-top:-15px;
+  padding-bottom: 0;
+}
 @media (max-width: 768px) {
+  .rankingmercado{
+    display: block;
+  }
+  .rankingmercado-parte0{
+    width: 100%;
+  }
+  .rankingmercado-parte1{
+    width: 100%;
+    padding-top: 0px;
+  }
+  .rankingmercado-parte2{
+    display: none;
+  }
   .case-column h2 {
     font-size: 30px;
   }
@@ -267,6 +285,18 @@
   }
 }
 @media (min-width: 768px) {
+  .rankingmercado{
+    display: flex;
+  }
+  .rankingmercado-parte0{
+    display: none;
+  }
+  .rankingmercado-parte1{
+    width: 50%;
+  }
+  .rankingmercado-parte2{
+    width: 50%;
+  }
   .oqueeonfly-column{
     padding: 10px;
   }
@@ -278,7 +308,7 @@
     max-width: 400px;
   }
   .dashboard-column1{
-    max-width: 300px;
+    max-width: 270px;
   }
   .dashboard-row, .dashboard-row2 {
     flex-direction: row;
@@ -297,8 +327,7 @@
     margin-left: 270px;
   }
   .rankingmercado{
-
-    padding: 50px 90px;
+    padding: 0px 90px;
     margin-left: 270px;
   }
   .oqueeonfly{
@@ -338,7 +367,6 @@
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   padding: 15px 0;
   background: #0F3163;
   position: fixed; /* Torna o header fixo */
@@ -415,11 +443,13 @@
 
 
 @media (max-width: 768px) {
-  .header {
-    justify-content: center;
+  .header{
+    padding-left: 45px;
+    padding-right: 25px; 
   }
   .imageLink {
     padding-right: 0;
+    width: 25%;
   }
   .title {
     display: none;
@@ -485,26 +515,30 @@
   align-self: center;
 }
 .cases{
-
+  padding-bottom: 30px;
   background: #0F3163;
+}
+.cases p{
+  margin-top:0px;
 }
 .rankingmercado{
-  display: none;
-  width: 100%;
   background: #0F3163;
+  padding-bottom: 50px;
 }
+
 
 .corpo{
   overflow-x: hidden;
 }
 .case-button{
-  background-color: #ffaa00;
+  width: 200px;
+  background-color: #FF5A05;
   color: white;
   padding: 10px 40px 10px 40px;
   border-radius: 20px;
-  border-color: #ffaa00;
+  border-color: #FF5A05;
   margin-top: 30px;
-  font-size: 18px;
+  font-size: 16px;
 }
 /* CSS para a versão desktop */
 .oqueeonfly {
@@ -591,4 +625,166 @@
 .highlight{
   color: #009EFB;
   ;
+}
+.sidebar-button {
+  margin-top: 70px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #FF5A05; /* Laranja */
+  border: 2px solid #FF5A05; /* Borda laranja */
+  color: #FFFFFF; /* Texto branco */
+  text-align: center;
+  text-decoration: none; /* Remove sublinhado */
+  border-radius: 25px; /* Torna o botão arredondado */
+  font-size: 16px; /* Tamanho da fonte */
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Transição suave para hover */
+  width:200px;
+}
+
+.sidebar-button:hover {
+  background-color: #D73600; /* Laranja mais escuro no hover */
+  border-color: #D73600; /* Laranja mais escuro no hover */
+}
+.case-button:hover {
+  background-color: #D73600; /* Laranja mais escuro no hover */
+  border-color: #D73600; /* Laranja mais escuro no hover */
+}
+.sidebar-button-ranking {
+  width:200px;
+  margin-top: 10px;
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #5CC4FD; /* Laranja */
+  border: 2px solid #5CC4FD; /* Borda laranja */
+  color: #FFFFFF; /* Texto branco */
+  text-align: center;
+  text-decoration: none; /* Remove sublinhado */
+  border-radius: 25px; /* Torna o botão arredondado */
+  font-size: 16px; /* Tamanho da fonte */
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Transição suave para hover */
+}
+.sidebar-button-ranking:hover {
+  background-color: #006DA7;
+  border-color: #006DA7; /* Laranja mais escuro no hover */
+}
+.sidebar-button-header{
+  display: none;
+  padding: 7px;
+  background-color: #FF5A05; /* Laranja */
+  border: 1px solid #FF5A05; /* Borda laranja */
+  color: #FFFFFF; /* Texto branco */
+  text-align: center;
+  text-decoration: none; /* Remove sublinhado */
+  border-radius: 25px; /* Torna o botão arredondado */
+  font-size: 16px; /* Tamanho da fonte */
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Transição suave para hover */
+}
+@media (max-width: 768px) {
+  .sidebar-button-header{
+    display: flex;
+    align-self: right;
+    font-size: 13px;
+    align-self: center;
+  }
+  .button-compartilhar{
+    display: none;
+  }
+} 
+@media (min-width: 768px) {
+  .rankingmercado h2{
+    margin-top: 0px;
+  }
+  .button-compartilhar{
+    display: inline-block;
+  }
+  .text-result{
+    width: 85%;
+  }
+} 
+.sidebar-button-header:hover {
+  background-color: #D73600; /* Laranja mais escuro no hover */
+  border-color: #D73600; /* Laranja mais escuro no hover */
+}
+.lockIcon2{
+  padding-left: 10px;
+}
+.acima-dashboard{
+  display: flex;
+}
+.button-compartilhar{
+  width: 100%;
+  padding: 10px 20px;
+
+  background: linear-gradient(45deg, #FFA500, #FF5A05); /* Degradê de laranja claro para escuro */
+  border: 1px solid #FF5A05; /* Borda laranja */
+  color: #FFFFFF; /* Texto branco */
+  text-align: center;
+  text-decoration: none; /* Remove sublinhado */
+  border-radius: 25px; /* Torna o botão arredondado */
+  font-size: 16px; /* Tamanho da fonte */
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Transição suave para hover */
+}
+.button-compartilhar:hover {
+  background-color: #D73600; /* Laranja mais escuro no hover */
+  border-color: #D73600; /* Laranja mais escuro no hover */
+}
+.button-compartilhar-div{
+  padding-top: 20px;
+  display: flex;
+  align-items: right;
+  width: 20%;
+}
+.rankingmercado-parte1{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  padding: 25px;
+}
+.rankingmercado-parte2{
+  padding: 25px;
+}
+.rankingmercado-parte2 h2{
+  color: white;
+  font-size: 34px;
+}
+.rankingmercado-parte2 p{
+  color: white;
+}
+.rankingmercado-parte0{
+  padding: 25px;
+}
+.rankingmercado-parte0 h2{
+  color: white;
+  font-size: 34px;
+}
+.rankingmercado-parte0 p{
+  color: white;
+}
+.button-ranking-slide {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 20px; /* Espaçamento interno */
+  background-color: #006DA7;
+  ; /* Fundo cinza claro */
+  color: white; /* Texto preto */
+  border: none;
+  width: 100%;
+  text-decoration: none;
+  font-size: 16px; /* Tamanho da fonte */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Transição suave para hover */
+  margin-bottom: 10px;
+  margin-top: 10px;
+  border: solid 1px #006DA7;
+  border-radius: 20px;
+}
+
+.button-ranking-slide .icon {
+  margin-left: 8px; /* Espaço entre o texto e o ícone */
+}
+
+.button-ranking-slide:hover {
+  background-color: #C0C0C0; /* Fundo cinza um pouco mais escuro no hover */
 }

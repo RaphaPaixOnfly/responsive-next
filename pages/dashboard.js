@@ -7,7 +7,7 @@ import styles from '../styles/Dashboard.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faLock } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
-import { faCog, faLaptopCode, faDollarSign, faChartLine, faSmile, faShieldAlt } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faGift, faLaptopCode, faDollarSign, faChartLine, faSmile, faShieldAlt } from '@fortawesome/free-solid-svg-icons';
 
 const calculateCriteriaCounts = (data) => {
   const criteriaCounts = {
@@ -158,15 +158,19 @@ export default function Dashboard() {
    <div className={styles.corpo}>
     <div className={styles.header}>
       <h1 className={styles.title}>Diagnóstico de Gestão de Viagens</h1>
+      
       <a href="https://www.onfly.com.br" target="_blank" rel="noopener noreferrer" className={styles.imageLink}>
         <Image
           src="/Logo branca.png" // substitua pelo caminho da sua imagem
           alt="Descrição da imagem"
-          width={100} // substitua pela largura desejada
-          height={25} // substitua pela altura desejada
+          width={68} // substitua pela largura desejada
+          height={17} // substitua pela altura desejada
           className={styles.responsiveImage}
         />
       </a>
+        <a href="https://www.seulink.com" className={styles['sidebar-button-header']} target="_blank" rel="noopener noreferrer">
+          Fale com Especialista
+        </a>
     </div>
     <div className={styles.sidebar}>
         <h3>Fundamento priorizado: </h3>
@@ -182,13 +186,27 @@ export default function Dashboard() {
             </div>
           ))}
         </div>
+        <a href="https://www.seulink.com" className={styles['sidebar-button']} target="_blank" rel="noopener noreferrer">
+          Fale com Especialista
+        </a>
+        <a href="https://www.seulink.com" className={styles['sidebar-button-ranking']} target="_blank" rel="noopener noreferrer">
+          Liberar Ranking<FontAwesomeIcon icon={faLock} className={styles.lockIcon2} />
+        </a>
+
       </div>
     
 
     
     <div className={styles['dashboard-container']}>
-      <div className={styles['text-result']}>
-        <h3 dangerouslySetInnerHTML={{ __html: getMessage(data.nome, data.geral) }}></h3>
+      <div className={styles['acima-dashboard']}>
+        <div className={styles['text-result']}>
+          <h3 dangerouslySetInnerHTML={{ __html: getMessage(data.nome, data.geral) }}></h3>
+        </div>
+        <div className={styles['button-compartilhar-div']}>
+          <a href="" target="_blank" rel="noopener noreferrer">
+                <button className={styles['button-compartilhar']}>Compartilhar <FontAwesomeIcon icon={faGift} className={styles['icon']} /></button>
+              </a>
+        </div>
       </div>
       <div className={styles['mobile-controls']}>
         <button
@@ -333,50 +351,78 @@ export default function Dashboard() {
       </div>
       
       <div className={styles['rankingmercado']}>
-
+          <div className={styles['rankingmercado-parte0']}>
+            <h2>Como você está em relação<span className={styles['highlight']}> ao mercado?</span></h2>
+            <p>Aqui você poderá ver uma comparação da sua empresa com o mercado de uma forma geral. Assim é possível fazer uma análise se a sua operação está acima ou abaixo da média em relação a outras empresas que também preencheram o diagnóstico de gestão de viagens.</p>
+          </div>
+        
+          <div className={styles['rankingmercado-parte1']}>
+            <div className={styles['rankingmercado-row']}>
+            <a href="https://www.seulink.com" className={styles['button-ranking-slide']} target="_blank" rel="noopener noreferrer">
+              Fale com Especialista<FontAwesomeIcon icon={faLock} className={styles['icon']} />
+            </a>
+              
+            </div>
+            <div className={styles['rankingmercado-row']}>
+              <a href="https://www.seulink.com" className={styles['button-ranking-slide']} target="_blank" rel="noopener noreferrer">
+                Fale com Especialista<FontAwesomeIcon icon={faLock} className={styles['icon']} />
+              </a>
+              
+            </div>
+            <div className={styles['rankingmercado-row']}>
+              <a href="https://www.seulink.com" className={styles['button-ranking-slide']} target="_blank" rel="noopener noreferrer">
+                Fale com Especialista<FontAwesomeIcon icon={faLock} className={styles['icon']} />
+              </a>
+             
+            </div>
+          </div>
+          <div className={styles['rankingmercado-parte2']}>
+            <h2>Como você está em relação<span className={styles['highlight']}> ao mercado?</span></h2>
+            <p>Aqui você poderá ver uma comparação da sua empresa com o mercado de uma forma geral. Assim é possível fazer uma análise se a sua operação está acima ou abaixo da média em relação a outras empresas que também preencheram o diagnóstico de gestão de viagens.</p>
+          </div>
       </div>
 
       <div className={styles['oqueeonfly']}>
-  <div className={styles['oqueeonfly-parte1']}>
-    <h2>O que é a <span className={styles['highlight']}>Onfly?</span></h2>
-    <p>A plataforma nº1 da América Latina na gestão de viagens a trabalho, com foco em transparência, economia e na experiência descomplicada do viajante.</p>
-  </div>
-  <div className={styles['oqueeonfly-parte2']}>
-    <div className={styles['oqueeonfly-column']}>
-      <Image
-        src="/viagemtrabalho.png"
-        alt="Descrição da imagem"
-        width={300} // substitua pela largura desejada
-        height={300} // substitua pela altura desejada
-        className={styles.responsiveImage}
-      />
-      <h4>Suas viagens a trabalho podem ser mais simples</h4>
-      <p>Reserve tudo em poucos cliques, sem precisar fazer nenhuma solicitação externa: é você quem decide o melhor horário para as suas viagens.</p>
-    </div>
-    <div className={styles['oqueeonfly-column']}>
-      <Image
-        src="/eficienciaqualidade.png"
-        alt="Descrição da imagem"
-        width={300} // substitua pela largura desejada
-        height={300} // substitua pela altura desejada
-        className={styles.responsiveImage}
-      />
-      <h4>Eficiência e qualidade em viagens corporativas</h4>
-      <p>Otimize o gerenciamento de viagens com a Onfly: acompanhe em tempo real, controle créditos e gerencie políticas e bilhetes não voados. Diminua a quantidade de processos e foque no essencial.</p>
-    </div>
-    <div className={styles['oqueeonfly-column']}>
-      <Image
-        src="/transparencia.png"
-        alt="Descrição da imagem"
-        width={300} // substitua pela largura desejada
-        height={300} // substitua pela altura desejada
-        className={styles.responsiveImage}
-      />
-      <h4>Transparência Financeira é com a líder da América Latina</h4>
-      <p>Aprimore a gestão financeira, visualizando relatórios em tempo real, análises precisas e integrações com ERPs. Na Onfly, sua gestão aumenta o ROI e toma decisões mais estratégicas.</p>
-    </div>
-  </div>
-</div>
+        <div className={styles['oqueeonfly-parte1']}>
+          <h2>O que é a <span className={styles['highlight']}>Onfly?</span></h2>
+          <p>A plataforma nº1 da América Latina na gestão de viagens a trabalho, com foco em transparência, economia e na experiência descomplicada do viajante.</p>
+        </div>
+        <div className={styles['oqueeonfly-parte2']}>
+          <div className={styles['oqueeonfly-column']}>
+            <Image
+              src="/viagemtrabalho.png"
+              alt="Descrição da imagem"
+              width={300} // substitua pela largura desejada
+              height={300} // substitua pela altura desejada
+              className={styles.responsiveImage}
+            />
+            <h4>Suas viagens a trabalho podem ser mais simples</h4>
+            <p>Reserve tudo em poucos cliques, sem precisar fazer nenhuma solicitação externa: é você quem decide o melhor horário para as suas viagens.</p>
+          </div>
+          <div className={styles['oqueeonfly-column']}>
+            <Image
+              src="/eficienciaqualidade.png"
+              alt="Descrição da imagem"
+              width={300} // substitua pela largura desejada
+              height={300} // substitua pela altura desejada
+              className={styles.responsiveImage}
+            />
+            <h4>Eficiência e qualidade em viagens corporativas</h4>
+            <p>Otimize o gerenciamento de viagens com a Onfly: acompanhe em tempo real, controle créditos e gerencie políticas e bilhetes não voados. Diminua a quantidade de processos e foque no essencial.</p>
+          </div>
+          <div className={styles['oqueeonfly-column']}>
+            <Image
+              src="/transparencia.png"
+              alt="Descrição da imagem"
+              width={300} // substitua pela largura desejada
+              height={300} // substitua pela altura desejada
+              className={styles.responsiveImage}
+            />
+            <h4>Transparência Financeira é com a líder da América Latina</h4>
+            <p>Aprimore a gestão financeira, visualizando relatórios em tempo real, análises precisas e integrações com ERPs. Na Onfly, sua gestão aumenta o ROI e toma decisões mais estratégicas.</p>
+          </div>
+        </div>
+      </div>
 
 
 
