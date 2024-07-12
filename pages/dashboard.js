@@ -287,6 +287,11 @@ export default function Dashboard() {
                   <FontAwesomeIcon icon={faLock} className={styles.lockIcon} />
                 </div>
               </div>
+              <div className={styles['button-card-div']}>
+                <a href="https://www.seulink.com" className={styles['button-card']} target="_blank" rel="noopener noreferrer">
+                  Liberar Ranking<FontAwesomeIcon icon={faLock} className={styles.lockIcon2} />
+                </a>
+              </div>
             </div>
           </div>
         </div>

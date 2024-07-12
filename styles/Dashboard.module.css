@@ -212,7 +212,7 @@
   justify-content: center;
   align-items: center;
   background-color: #0F3163;
-  padding: 30px;
+  padding: 15px;
 }
 
 .socialIcon {
@@ -231,9 +231,16 @@
 }
 .dashboard-text-container{
   margin-top:-15px;
-  padding-bottom: 0;
+  padding-bottom: 
+  0;
+}
+.button-card-div{
+  display: none;
 }
 @media (max-width: 768px) {
+  .button-card-div{
+    display: block;
+  }
   .rankingmercado{
     display: block;
     margin-top: -25px;
@@ -478,7 +485,7 @@
     display: none;
   }
   .dashboard-container {
-    padding-top: 100px; /* Ajuste para a altura do header em mobile */
+    padding-top: 80px; /* Ajuste para a altura do header em mobile */
   }
   .sidebar{
     display: none;
@@ -690,6 +697,35 @@
   background-color: #006DA7;
   border-color: #006DA7; /* Laranja mais escuro no hover */
 }
+.button-card {
+  align-self: center;
+  width:100%;
+  margin-top: 30px;
+  padding: 5px 5px;
+  background-color: #5CC4FD; /* Laranja */
+  border: 2px solid #5CC4FD; /* Borda laranja */
+  color: #FFFFFF; /* Texto branco */
+  text-align: center;
+  text-decoration: none; /* Remove sublinhado */
+  border-radius: 25px; /* Torna o botão arredondado */
+  font-size: 16px; /* Tamanho da fonte */
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Transição suave para hover */
+}
+.button-card:hover {
+  background-color: #006DA7;
+  border-color: #006DA7; /* Laranja mais escuro no hover */
+}
+.button-card-div{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 0px 10px;
+}
+
+
+
+
+
 .sidebar-button-header{
   display: none;
   padding: 7px;
@@ -714,6 +750,9 @@
   }
 } 
 @media (min-width: 768px) {
+  .button-card-div{
+    display: none;
+  }
   .rankingmercado h2{
     margin-top: 0px;
   }
