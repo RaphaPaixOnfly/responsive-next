@@ -238,6 +238,12 @@
   display: none;
 }
 @media (max-width: 768px) {
+  .card-compartilhamento-laranja{
+    flex-direction: column;
+  }
+  .card-compartilhamento-laranja-COLUMN2{
+    padding-bottom: 20px;
+  }
   .button-card-div{
     display: block;
   }
@@ -312,6 +318,22 @@
   }
 }
 @media (min-width: 768px) {
+  .card-compartilhamento-laranja-COLUMN1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 50%;
+    padding: 10px;
+  }
+  .card-compartilhamento-laranja-COLUMN2{
+    padding: 10px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+
+  }
   .footer{
     margin-left: 270px;
   }
@@ -354,6 +376,10 @@
   }
   .cases{
     padding: 50px 90px;
+    margin-left: 270px;
+  }
+  .card-compartilhamento{
+    padding: 30px 90px;
     margin-left: 270px;
   }
   .rankingmercado{
@@ -545,10 +571,15 @@
   align-self: center;
 }
 .cases{
-  padding-bottom: 30px;
+  padding-bottom: 10px;
   background: #0F3163;
 }
+.card-compartilhamento{
+  background: #0F3163;
+  margin-top: -5px;
+}
 .cases p{
+  padding-bottom: 30px;
   margin-top:0px;
 }
 .rankingmercado{
@@ -636,6 +667,9 @@
     padding-top: 20px;
   }
   .cases{
+    padding-bottom: 5px;
+  }
+  .card-compartilhamento{
     padding-bottom: 5px;
   }
   .oqueeonfly-parte1 {
@@ -828,25 +862,85 @@
   align-items: center;
   justify-content: space-between;
   padding: 20px 20px; /* Espaçamento interno */
-  background-color: #006DA7;
-  ; /* Fundo cinza claro */
-  color: white; /* Texto preto */
-  border: none;
+  background-color: #0F3163; /* Cor de fundo azul escuro */
+  color: #839dbc; /* Cor do texto cinza claro */
+  border: solid 1px rgba(6, 28, 62, 0.1); /* Cor da borda */
   width: 100%;
   text-decoration: none;
   font-size: 16px; /* Tamanho da fonte */
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Transição suave para hover */
   margin-bottom: 10px;
   margin-top: 10px;
-  border: solid 1px #006DA7;
   border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 8px 6px -6px, /* Sombra escura embaixo */
+              rgba(255, 255, 255, 0.4) 0px -4px 8px -6px; /* Sombra clara em cima */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transição suave para hover */
 }
+
+.button-ranking-slide:hover {
+  background-color: #122b4a; /* Cor de fundo mais escura ao passar o mouse */
+}
+
+
+
 
 .button-ranking-slide .icon {
   margin-left: 8px; /* Espaço entre o texto e o ícone */
 }
 
-.button-ranking-slide:hover {
-  background-color: #C0C0C0; /* Fundo cinza um pouco mais escuro no hover */
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  right: auto;
+  bottom: auto;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  outline: none;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.75);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+}
+
+.button-reload{
+  margin-top: 20px;
+  background-color: #009EFB;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 25px;
+}
+
+.button-close {
+  margin-top: 20px;
+  margin-left: 10px;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 25px;
+}
+.card-compartilhamento-laranja {
+  display: flex;
+  background: linear-gradient(135deg, #5CC4FD, #267FFA);
+  color: white; /* Define a cor do texto como branco */
+  border-radius: 20px;
+  padding: 15px;
+}
+
+.card-compartilhamento-div-extra{
+  padding: 25px;
 }

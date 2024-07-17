@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Script from 'next/script';
 import styles from '../styles/Home.module.css';
@@ -9,6 +9,24 @@ import CircularIcon from '../components/CircularIcon'; // Ajuste o caminho confo
 
 export default function Home() {
   const [iframeId, setIframeId] = useState('');
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get('token');
+
+    if (token) {
+      fetch('https://x8ki-letl-twmt.n7.xano.io/api:spr2iDvK/diagnostico_gestao_de_viagensToken_shared', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token: token }),
+      })
+        .then(response => response.json())
+        .then(data => console.log('Success:', data))
+        .catch(error => console.error('Error:', error));
+    }
+  }, []);
 
   const handleRedirect = (id) => {
     setIframeId(id);
@@ -27,7 +45,6 @@ export default function Home() {
       {!iframeId ? (
         <main className={styles.main}>
           <div className={styles.column1}>
-            
             <h1 className={styles.title}>Diagnóstico de Gestão de Viagens Corporativas</h1>
             <p className={styles.subtitle}>Obtenha um diagnóstico personalizado da gestão de viagens da sua empresa de forma rápida e gratuita.</p>
             

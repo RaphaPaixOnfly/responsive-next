@@ -3,12 +3,15 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import ChartComponent from '../components/ChartComponent';
 import HorizontalBar from '../components/HorizontalBar';
+import InputCompartilhar from '../components/InputCompartilhar'; // Certifique-se de ajustar o caminho do arquivo se necessário
 import styles from '../styles/Dashboard.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle, faLock } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
 import { faFacebook, faInstagram, faYoutube, faLinkedin, faTiktok } from '@fortawesome/free-brands-svg-icons';
 import { faCog, faGift, faLaptopCode, faDollarSign, faChartLine, faSmile, faShieldAlt } from '@fortawesome/free-solid-svg-icons';
+import SharePopup from '../components/SharePopup';
+
 
 const calculateCriteriaCounts = (data) => {
   const criteriaCounts = {
@@ -204,9 +207,7 @@ export default function Dashboard() {
           <h3 dangerouslySetInnerHTML={{ __html: getMessage(data.nome, data.geral) }}></h3>
         </div>
         <div className={styles['button-compartilhar-div']}>
-          <a href="" target="_blank" rel="noopener noreferrer">
-                <button className={styles['button-compartilhar']}>Compartilhar <FontAwesomeIcon icon={faGift} className={styles['icon']} /></button>
-              </a>
+              <SharePopup token={token} />
         </div>
       </div>
       <div className={styles['mobile-controls']}>
@@ -355,6 +356,20 @@ export default function Dashboard() {
           </div>
         )}
       </div>
+      <div className={styles['card-compartilhamento']}>
+        <div className={styles['card-compartilhamento-div-extra']}>
+          <div className={styles['card-compartilhamento-laranja']}>
+              <div className={styles['card-compartilhamento-laranja-COLUMN1']}>
+                
+                <h4>Indique o diagnóstico de gestão de viagens da Onfly para os seus amigos descobrirem qual fundamento precisa ser priorizado. Seu ranking será liberado após a pessoa acessar o link ao lado.</h4>
+              </div>
+              <div className={styles['card-compartilhamento-laranja-COLUMN2']}>
+                <h4>Compartilhe seu link único para liberar o ranking:</h4>
+                <InputCompartilhar token={token} />
+              </div>
+          </div>
+        </div>
+      </div>
       
       <div className={styles['rankingmercado']}>
           <div className={styles['rankingmercado-parte0']}>
@@ -431,21 +446,21 @@ export default function Dashboard() {
       </div>
 
       <div className={styles.footer}>
-        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
-          <FontAwesomeIcon icon={faFacebook} />
-        </a>
-        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
-          <FontAwesomeIcon icon={faInstagram} />
-        </a>
-        <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
-          <FontAwesomeIcon icon={faYoutube} />
-        </a>
-        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
-          <FontAwesomeIcon icon={faLinkedin} />
-        </a>
-        <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
-          <FontAwesomeIcon icon={faTiktok} />
-        </a>
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
+            <FontAwesomeIcon icon={faFacebook} />
+          </a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
+            <FontAwesomeIcon icon={faInstagram} />
+          </a>
+          <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
+            <FontAwesomeIcon icon={faYoutube} />
+          </a>
+          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
+            <FontAwesomeIcon icon={faLinkedin} />
+          </a>
+          <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
+            <FontAwesomeIcon icon={faTiktok} />
+          </a>
       </div>
 
 
