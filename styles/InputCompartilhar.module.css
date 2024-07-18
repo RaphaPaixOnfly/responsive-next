@@ -22,17 +22,22 @@
   }
   
   .inputCompartilharContainer button {
-    background-color: white;
+    padding: 0px;
     border: none;
+    color: #009EFB;
+    background-color: white;
     cursor: pointer;
     padding: 8px;
+    border-left: none;
+  }
+  
+  .inputCompartilharContainer .shareButton {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
   }
   
+  
   .inputCompartilharContainer button:hover {
     opacity: 0.8;
   }
-  .copyIcon {
-    color: #009EFB; /* Cor do ícone */
-  }
+  

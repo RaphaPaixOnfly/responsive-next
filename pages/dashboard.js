@@ -68,6 +68,84 @@ export default function Dashboard() {
 
   useEffect(() => {
     if (token) {
+      axios.get(`https://x8ki-letl-twmt.n7.xano.io/api:spr2iDvK/diagnostico_gestao_de_viagens_shared?token=${token}`)
+        .then(response => {
+          const isShared = response.data.shared;
+          if (isShared) {
+            fetchRankingData();
+          }
+        })
+        .catch(error => {
+          setError(error);
+        });
+    }
+  }, [token]);
+  
+  
+  const fetchRankingData = () => {
+    axios.get(`https://x8ki-letl-twmt.n7.xano.io/api:spr2iDvK/diagnostico_gestao_de_viagens_tudo`)
+      .then(response => {
+        setRankingData(response.data);
+      })
+      .catch(error => {
+        setError(error);
+      });
+  };
+  
+
+  const [rankingData, setRankingData] = useState(null);
+
+  const calculateRanking = (rankingData, currentToken, key = null) => {
+    // Encontrar os dados da empresa atual usando o token
+    const currentData = rankingData.find(item => item.token === currentToken);
+    if (!currentData) {
+      console.log('Empresa com o token não encontrada');
+      return "Empresa não encontrada";
+    }
+  
+    console.log('Current Data:', currentData);
+  
+    let filteredData = rankingData;
+  
+    // Filtrar por key se fornecido (segmento ou size)
+    if (key) {
+      filteredData = filteredData.filter(item => item[key] === currentData[key]);
+      console.log(`Filtered Data by ${key}:`, filteredData);
+    }
+  
+    // Remover empresas duplicadas, mantendo a de maior nota
+    const uniqueCompanies = Array.from(new Set(filteredData.map(item => item.empresa)))
+      .map(empresa => {
+        return filteredData
+          .filter(item => item.empresa === empresa)
+          .reduce((prev, curr) => (prev.geral > curr.geral ? prev : curr));
+      });
+  
+    console.log('Unique Companies before adding current:', uniqueCompanies);
+  
+    // Adicionar a empresa do nosso token ao array de empresas únicas
+    uniqueCompanies.push(currentData);
+  
+    // Ordenar por nota geral em ordem decrescente
+    uniqueCompanies.sort((a, b) => b.geral - a.geral);
+  
+    console.log('Unique Companies after adding current:', uniqueCompanies);
+  
+    // Encontrar a posição da empresa atual
+    const position = uniqueCompanies.findIndex(item => item.token === currentToken) + 1;
+  
+    console.log('Position:', position);
+  
+    return `${position}° de ${uniqueCompanies.length}`;
+  };
+  
+  
+  
+  
+  
+
+  useEffect(() => {
+    if (token) {
       axios.get(`https://x8ki-letl-twmt.n7.xano.io/api:spr2iDvK/diagnostico_gestao_de_viagens?token=${token}`)
         .then(response => {
           setData(response.data[0]);
@@ -77,6 +155,21 @@ export default function Dashboard() {
         });
     }
   }, [token]);
+
+  const scrollToCompartilhar = () => {
+    const element = document.getElementById('card-compartilhamento');
+    if (element) {
+      const offset = -80; // ajuste para rolar um pouco mais alto
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset + offset;
+  
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth',
+      });
+    }
+  };
+  
 
   if (error) {
     return <div>Error: {error.message}</div>;
@@ -107,41 +200,42 @@ export default function Dashboard() {
   const caseData = {
     'Atendimento': {
       title: `${data.nome}, você deve priorizar Atendimento`,
-      description: 'Descubra como a Azos melhorou a experiência dos colaboradores com a Onfly, proporcionando um atendimento ao cliente excepcional e personalizado.',
+      description: 'Descubra como a Azos melhorou a experiência dos colaboradores com a Onfly, proporcionando um atendimento excepcional e personalizado. Com um suporte dedicado e soluções rápidas, a empresa conseguiu aumentar a satisfação e eficiência dos seus viajantes corporativos, garantindo um serviço de alta qualidade.',
       image: '/imagematendimento.png', // Substitua pelo caminho real da imagem
       link: 'https://www.onfly.com.br/case-de-sucesso-onfly-azos-seguros/',
     },
     'Tecnologia e Automação': {
       title: `${data.nome}, você deve priorizar Tecnologia e Automação`,
-      description: 'Veja como a Cartão de Todos implementou soluções de tecnologia e automação com a Onfly para otimizar processos da gestão de viagens.',
+      description: 'Veja como a Cartão de Todos otimizou processos com a Onfly, implementando soluções de tecnologia e automação na gestão de viagens. A integração de sistemas e a automação de tarefas reduziram o tempo de administração e os erros, permitindo um foco maior em estratégias e melhorias contínuas.',
       image: '/onfly-integracoes.png',
       link: 'https://www.onfly.com.br/case-cartao-de-todos/',
     },
     'Controle de Custos': {
       title: `${data.nome}, você deve priorizar Controle de Custos`,
-      description: 'Saiba como a Cartão de Todos utilizou as ferramentas da Onfly para monitorar e controlar despesas de forma eficiente.',
+      description: 'Saiba como a Cartão de Todos utilizou ferramentas da Onfly para monitorar e controlar despesas de forma eficiente. Através de relatórios detalhados e análise contínua de gastos, a empresa conseguiu implementar políticas de economia que resultaram em uma significativa redução nos custos operacionais das viagens corporativas.',
       image: '/imagemscustos2.png',
       link: 'https://www.onfly.com.br/case-cartao-de-todos/',
     },
     'Planejamento': {
       title: `${data.nome}, você deve priorizar Planejamento`,
-      description: 'Descubra como a Rofe Distribuidora melhorou seu planejamento estratégico com as soluções da Onfly, garantindo viagens corporativas mais organizadas e econômicas.',
+      description: 'Descubra como a Rofe Distribuidora melhorou seu planejamento estratégico com a Onfly, garantindo viagens mais organizadas e econômicas. A empresa implementou um sistema de planejamento que permitiu uma melhor alocação de recursos e um acompanhamento detalhado de cada etapa, resultando em maior eficiência e controle.',
       image: '/imagemscustos2.png',
       link: 'https://www.onfly.com.br/case-rofe-distribuidora/',
     },
     'Satisfação do Viajante': {
       title: `${data.nome}, você deve priorizar Satisfação do Viajante`,
-      description: 'Descubra como a Azos Seguros melhorou a satisfação de seus viajantes corporativos utilizando os serviços da Onfly.',
+      description: 'Descubra como a Azos Seguros aumentou a satisfação dos viajantes corporativos com os serviços da Onfly. Com um enfoque na experiência do usuário, a empresa conseguiu adaptar suas políticas e serviços para atender melhor às necessidades dos viajantes, proporcionando uma experiência mais agradável e sem complicações.',
       image: '/imagematendimento.png',
       link: 'https://www.onfly.com.br/case-de-sucesso-onfly-azos-seguros/',
     },
     'Compliance e Políticas': {
       title: `${data.nome}, você deve priorizar Compliance e Políticas`,
-      description: 'Conheça o guia de política de viagens corporativas da Onfly, onde você obterá um passo a passo para começar a estruturar a política de viagens da sua empresa.',
+      description: 'Conheça o guia da Onfly para criar uma política de viagens corporativas estruturada e eficaz. A empresa desenvolveu um conjunto de diretrizes e práticas recomendadas que ajudaram a assegurar conformidade e a reduzir riscos, mantendo ao mesmo tempo a flexibilidade necessária para operações eficientes.',
       image: '/imagemcompliance.png',
       link: 'https://www.onfly.com.br/blog/criar-a-politica-de-viagens-guia-definitivo/',
     },
   };
+  
   
   
   
@@ -172,7 +266,7 @@ export default function Dashboard() {
           className={styles.responsiveImage}
         />
       </a>
-        <a href="https://www.seulink.com" className={styles['sidebar-button-header']} target="_blank" rel="noopener noreferrer">
+        <a href="https://www.onfly.com.br/viagens-corporativas-form/" className={styles['sidebar-button-header']} target="_blank" rel="noopener noreferrer">
           Fale com Especialista
         </a>
     </div>
@@ -190,12 +284,19 @@ export default function Dashboard() {
             </div>
           ))}
         </div>
-        <a href="https://www.seulink.com" className={styles['sidebar-button']} target="_blank" rel="noopener noreferrer">
+        <a href="https://www.onfly.com.br/viagens-corporativas-form/" className={styles['sidebar-button']} target="_blank" rel="noopener noreferrer">
           Fale com Especialista
         </a>
-        <a href="https://www.seulink.com" className={styles['sidebar-button-ranking']} target="_blank" rel="noopener noreferrer">
-          Liberar Ranking<FontAwesomeIcon icon={faLock} className={styles.lockIcon2} />
-        </a>
+        {rankingData ? (
+          <button onClick={scrollToCompartilhar} className={styles['sidebar-button-ranking']} target="_blank" rel="noopener noreferrer">
+            Ver Ranking<FontAwesomeIcon className={styles.lockIcon2} />
+          </button>
+        ) : (
+          <button onClick={scrollToCompartilhar} className={styles['sidebar-button-ranking']} target="_blank" rel="noopener noreferrer">
+            Liberar Ranking<FontAwesomeIcon icon={faLock} className={styles.lockIcon2} />
+          </button>
+        )}
+
 
       </div>
     
@@ -275,23 +376,49 @@ export default function Dashboard() {
                   <span className={`${styles['text-count']} ${styles.excellent}`}>{criteriaCounts.excellent}</span>
                 </div>
                 <h4>Ranking</h4>
-                <div className={styles['text-with-lock']}>
-                  <p>Geral</p>
-                  <FontAwesomeIcon icon={faLock} className={styles.lockIcon} />
-                </div>
-                <div className={styles['text-with-lock']}>
-                  <p>Mesma indústria</p>
-                  <FontAwesomeIcon icon={faLock} className={styles.lockIcon} />
-                </div>
-                <div className={styles['text-with-lock']}>
-                  <p>Mesmo porte</p>
-                  <FontAwesomeIcon icon={faLock} className={styles.lockIcon} />
-                </div>
+                  {rankingData ? (
+                    <>
+                      <div className={styles['text-with-rank']}>
+                        <p>Geral</p>
+                        <span className={styles.spanRank}>{calculateRanking(rankingData, token)}</span>
+                      </div>
+                      <div className={styles['text-with-rank']}>
+                        <p>Mesma indústria</p>
+                        <span className={styles.spanRank}>{calculateRanking(rankingData, token, 'segmento')}</span>
+                      </div>
+                      <div className={styles['text-with-rank']}>
+                        <p>Mesmo porte</p>
+                        <span className={styles.spanRank}>{calculateRanking(rankingData, token, 'size')}</span>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className={styles['text-with-lock']}>
+                        <p>Geral</p>
+                        <FontAwesomeIcon icon={faLock} className={styles.lockIcon} />
+                      </div>
+                      <div className={styles['text-with-lock']}>
+                        <p>Mesma indústria</p>
+                        <FontAwesomeIcon icon={faLock} className={styles.lockIcon} />
+                      </div>
+                      <div className={styles['text-with-lock']}>
+                        <p>Mesmo porte</p>
+                        <FontAwesomeIcon icon={faLock} className={styles.lockIcon} />
+                      </div>
+                    </>
+                  )}
               </div>
               <div className={styles['button-card-div']}>
-                <a href="https://www.seulink.com" className={styles['button-card']} target="_blank" rel="noopener noreferrer">
-                  Liberar Ranking<FontAwesomeIcon icon={faLock} className={styles.lockIcon2} />
-                </a>
+              {rankingData ? (
+                  <button onClick={scrollToCompartilhar} className={styles['button-card2']} target="_blank" rel="noopener noreferrer">
+                    Ver Ranking<FontAwesomeIcon className={styles.lockIcon3} />
+                  </button>
+                ) : (
+                  <button onClick={scrollToCompartilhar} className={styles['button-card']} target="_blank" rel="noopener noreferrer">
+                    Liberar Ranking<FontAwesomeIcon icon={faLock} className={styles.lockIcon2} />
+                  </button>
+                )}
+
               </div>
             </div>
           </div>
@@ -340,23 +467,27 @@ export default function Dashboard() {
             <div className={styles['case-column']}>
               <h2>{prioritizedCase.title}</h2>
               <p>{prioritizedCase.description}</p>
-              <a href={prioritizedCase.link} target="_blank" rel="noopener noreferrer">
-                <button className={styles['case-button']}>Acessar</button>
-              </a>
+              
+                <a href={prioritizedCase.link} target="_blank" rel="noopener noreferrer">
+                  <button className={styles['case-button']}>Leia Mais</button>
+                </a>
+              
             </div>
             <div className={styles['case-column2']}>
+                <div className={styles['case-column2-borda-imagem']}>
                 <Image
                   src={prioritizedCase.image}
                   alt="Descrição da imagem"
                   width={300} // substitua pela largura desejada
                   height={300} // substitua pela altura desejada
-                  className={styles.responsiveImage}
+                  className={styles.responsiveImage2}
                 />
+                </div>
             </div>
           </div>
         )}
       </div>
-      <div className={styles['card-compartilhamento']}>
+      <div id="card-compartilhamento" className={styles['card-compartilhamento']}>
         <div className={styles['card-compartilhamento-div-extra']}>
           <div className={styles['card-compartilhamento-laranja']}>
               <div className={styles['card-compartilhamento-laranja-COLUMN1']}>
@@ -379,24 +510,37 @@ export default function Dashboard() {
         
           <div className={styles['rankingmercado-parte1']}>
             <div className={styles['rankingmercado-row']}>
-            <a href="https://www.seulink.com" className={styles['button-ranking-slide']} target="_blank" rel="noopener noreferrer">
-              Ranking Geral<FontAwesomeIcon icon={faLock} className={styles['icon']} />
-            </a>
-              
+              <a className={styles['button-ranking-slide']} target="_blank" rel="noopener noreferrer">
+                Ranking Geral
+                {rankingData ? (
+                  <span>{calculateRanking(rankingData, token)}</span>
+                ) : (
+                  <FontAwesomeIcon icon={faLock} className={styles['icon']} />
+                )}
+              </a>
             </div>
             <div className={styles['rankingmercado-row']}>
-              <a href="https://www.seulink.com" className={styles['button-ranking-slide']} target="_blank" rel="noopener noreferrer">
-                Mesmo Porte<FontAwesomeIcon icon={faLock} className={styles['icon']} />
+              <a className={styles['button-ranking-slide']} target="_blank" rel="noopener noreferrer">
+                Mesmo Porte
+                {rankingData ? (
+                  <span>{calculateRanking(rankingData, token, 'size')}</span>
+                ) : (
+                  <FontAwesomeIcon icon={faLock} className={styles['icon']} />
+                )}
               </a>
-              
             </div>
             <div className={styles['rankingmercado-row']}>
-              <a href="https://www.seulink.com" className={styles['button-ranking-slide']} target="_blank" rel="noopener noreferrer">
-                Mesma Indústria<FontAwesomeIcon icon={faLock} className={styles['icon']} />
+              <a className={styles['button-ranking-slide']} target="_blank" rel="noopener noreferrer">
+                Mesma Indústria
+                {rankingData ? (
+                  <span>{calculateRanking(rankingData, token, 'segmento')}</span>
+                ) : (
+                  <FontAwesomeIcon icon={faLock} className={styles['icon']} />
+                )}
               </a>
-             
             </div>
           </div>
+
           <div className={styles['rankingmercado-parte2']}>
             <h2>Como você está em relação<span className={styles['highlight']}> ao mercado?</span></h2>
             <p>Aqui você poderá ver uma comparação da sua empresa com o mercado de uma forma geral. Assim é possível fazer uma análise se a sua operação está acima ou abaixo da média em relação a outras empresas que também preencheram o diagnóstico de gestão de viagens.</p>
@@ -446,19 +590,19 @@ export default function Dashboard() {
       </div>
 
       <div className={styles.footer}>
-          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
+          <a href="https://www.facebook.com/onfly.travel" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
             <FontAwesomeIcon icon={faFacebook} />
           </a>
-          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
+          <a href="https://www.instagram.com/onfly.travel/" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
             <FontAwesomeIcon icon={faInstagram} />
           </a>
-          <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
+          <a href="https://www.youtube.com/channel/UCyWqxiLUQrAhdZ6181NdYNQ" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
             <FontAwesomeIcon icon={faYoutube} />
           </a>
-          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
+          <a href="https://www.linkedin.com/company/onfly/" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
             <FontAwesomeIcon icon={faLinkedin} />
           </a>
-          <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
+          <a href="https://www.tiktok.com/@onfly.travel" target="_blank" rel="noopener noreferrer" className={styles.socialIcon}>
             <FontAwesomeIcon icon={faTiktok} />
           </a>
       </div>

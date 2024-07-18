@@ -148,7 +148,17 @@
   width: 100%;
   margin: -5px;
 }
-
+.text-with-rank{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: -5px;
+}
+.spanRank{
+  font-weight: bold;
+  color: #000;
+}
 .criticalIcon {
   color: red;
   margin-right: 8px;
@@ -371,11 +381,9 @@
   .dashboard-content{
     display: flex;
   }
-  .dashboard-column1 {
-    margin-left: 10px;
-  }
+
   .cases{
-    padding: 50px 90px;
+    padding: 30px 90px;
     margin-left: 270px;
   }
   .card-compartilhamento{
@@ -495,7 +503,9 @@
   justify-content: center;
   align-items: center;
 }
-
+.responsiveImage2{
+  width: 100%;
+}
 
 
 @media (max-width: 768px) {
@@ -522,7 +532,6 @@
 }
 
 .responsiveImage {
-  width: 100%;
   height: auto;
   max-width: 100%;
   max-height: 100%;
@@ -533,24 +542,38 @@
   justify-content: space-between;
   margin-bottom: 20px;
 }
+.case-column2-borda-imagem{
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  align-self: center;
 
+}
 .case-column {
   flex: 1;
   padding: 25px;
 }
 .case-column2{
+  align-items: center;
   display: flex;
-  flex: 1;
+
   padding: 25px;
 }
 .case-column p{
   color: white;
 }
 
-
+.case-column2{
+  align-items: center;
+  justify-items: center;
+}
 @media (max-width: 768px) {
   .case-item {
     display: block;
+  }
+  .case-column2-borda-imagem{
+    width: 100%;
   }
 }  
 .case-column h4 {
@@ -569,6 +592,7 @@
   max-width: 100%;
   height: auto;
   align-self: center;
+  width: 100%;
 }
 .cases{
   padding-bottom: 10px;
@@ -598,8 +622,8 @@
   padding: 10px 40px 10px 40px;
   border-radius: 20px;
   border-color: #FF5A05;
-  margin-top: 30px;
   font-size: 16px;
+  align-self: center;
 }
 /* CSS para a versão desktop */
 .oqueeonfly {
@@ -784,6 +808,12 @@
   }
 } 
 @media (min-width: 768px) {
+  .oqueeonfly h2{
+    margin-top: 0px;
+  }
+  .oqueeonfly{
+    padding-bottom: 30px;
+  }
   .button-card-div{
     display: none;
   }
@@ -943,4 +973,8 @@
 
 .card-compartilhamento-div-extra{
   padding: 25px;
+  padding-top: 0px;
+}
+.button-card2{
+  display: none;
 }
