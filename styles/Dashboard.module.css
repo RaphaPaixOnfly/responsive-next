@@ -399,7 +399,7 @@
     margin-left: 270px;
   }
   .dashboard-container{
-    margin-left: 270px;
+    margin-left: 280px;
     padding: 10px;
     padding-top: 90px;
     padding-bottom: 30px;
@@ -590,9 +590,9 @@
 }
 .responsiveImage {
   max-width: 100%;
-  height: auto;
+
   align-self: center;
-  width: 100%;
+
 }
 .cases{
   padding-bottom: 10px;

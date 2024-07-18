@@ -261,8 +261,8 @@ export default function Dashboard() {
         <Image
           src="/Logo branca.png" // substitua pelo caminho da sua imagem
           alt="Descrição da imagem"
-          width={68} // substitua pela largura desejada
-          height={17} // substitua pela altura desejada
+          width={100} // substitua pela largura desejada
+          height={40} // substitua pela altura desejada
           className={styles.responsiveImage}
         />
       </a>
