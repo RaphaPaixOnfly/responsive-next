@@ -5,10 +5,12 @@ import styles from '../styles/Home.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog, faLaptopCode, faDollarSign, faChartLine, faSmile, faShieldAlt } from '@fortawesome/free-solid-svg-icons';
 import Image from 'next/image';
-import CircularIcon from '../components/CircularIcon'; // Ajuste o caminho conforme necessário
+import CircularIcon from '../components/CircularIcon';
+import Modal from '../components/Modal'; // Import the Modal component
 
 export default function Home() {
   const [iframeId, setIframeId] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -30,6 +32,11 @@ export default function Home() {
 
   const handleRedirect = (id) => {
     setIframeId(id);
+    setIsModalOpen(true); // Open the modal
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
   };
 
   return (
@@ -42,58 +49,20 @@ export default function Home() {
 
       <Script src="https://scripts.gomerlin.com.br/merlin.js" strategy="beforeInteractive" />
 
-      {!iframeId ? (
-        <main className={styles.main}>
-          <div className={styles.column1}>
-            <h1 className={styles.title}>Diagnóstico de Gestão de Viagens Corporativas</h1>
-            <p className={styles.subtitle}>Obtenha um diagnóstico personalizado da gestão de viagens da sua empresa de forma rápida e gratuita.</p>
-            
-            <div className={styles.iconStruct}>
-              <div className={styles.iconItem}>
-                <FontAwesomeIcon icon={faCog} className={styles.icon} />
-                <p>Atendimento</p>
-              </div>
-              <div className={styles.iconItem}>
-                <FontAwesomeIcon icon={faShieldAlt} className={styles.icon} />
-                <p>Compliance e Políticas da Empresa</p>
-              </div>
-              <div className={styles.iconItem}>
-                <FontAwesomeIcon icon={faDollarSign} className={styles.icon} />
-                <p>Controle de Custos</p>
-              </div> 
-            </div>
-            <div className={styles.iconStruct}>
-              <div className={styles.iconItem}>
-                <FontAwesomeIcon icon={faChartLine} className={styles.icon} />
-                <p>Planejamento</p>
-              </div>
-              <div className={styles.iconItem}>
-                <FontAwesomeIcon icon={faSmile} className={styles.icon} />
-                <p>Satisfação do Viajante</p>
-              </div>
-              <div className={styles.iconItem}>
-                <FontAwesomeIcon icon={faLaptopCode} className={styles.icon} />
-                <p>Tecnologia e Automação</p>
-              </div> 
-            </div>
-          </div>
-          
+      <main className={styles.main}>
+        <div className={styles.column2}>
+          <CircularIcon handleClick={handleRedirect} />
           <div className={styles.column2}>
-            <CircularIcon handleClick={handleRedirect} />
-            <div className={styles.column2}>
-              <button onClick={() => handleRedirect('iframe1')}>Começar</button>
-            </div>
+            <button onClick={() => handleRedirect('iframe1')}>Começar</button>
           </div>
-        </main>
-      ) : (
-        <div id="merlin-container" className={styles.iframeContainer}></div>
-      )}
+        </div>
+      </main>
 
-      {iframeId && (
-        <Script id="merlin-init" strategy="lazyOnload">
-          {`Merlin.Container.initFromSource("https://tools.gomerlin.com.br/chat/edadb8d8-afb6-42a7-88b2-f2acd2678999", '#merlin-container');`}
-        </Script>
-      )}
+      <Modal
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        iframeSrc="https://tools.gomerlin.com.br/chat/edadb8d8-afb6-42a7-88b2-f2acd2678999"
+      />
     </div>
   );
 }
